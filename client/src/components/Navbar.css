@@ -1,0 +1,41 @@
+/* Navbar.css */
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .topLeft {
+    font-size: 24px;
+  }
+  
+  .homeLink {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .topList {
+    display: flex;
+    list-style-type: none;
+  }
+  
+  .topListItem {
+    margin-right: 20px;
+  }
+  
+  .topImgLeft, .topImgRight {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  

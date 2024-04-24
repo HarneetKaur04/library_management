@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import './Register.css';
 
 const API_URL = 'http://localhost:5000/api/users';
 
@@ -37,7 +38,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className='register-form'>
       <h2>Register</h2>
       <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />

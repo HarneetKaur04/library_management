@@ -66,3 +66,36 @@ color: #fff;
 .delete-button:hover {
 opacity: 0.5;
 }
+
+/* User profile styling */
+.user_profile {
+    display: flex; /* Use flexbox to align items */
+    justify-content: center; /* Center align items horizontally */
+    align-items: center; /* Center align items vertically */
+    margin-top: 50px; /* Add top margin */
+  }
+  
+  .user_img {
+    margin-right: 20px; /* Add right margin */
+  }
+  
+  .user_img img {
+    width: 200px; /* Set image width */
+    height: 200px; /* Set image height */
+    border-radius: 50%; /* Make image round */
+  }
+  
+  .user_details {
+    text-align: left; /* Align text to the left */
+  }
+  
+  .user_details h2 {
+    margin-bottom: 10px; /* Add bottom margin */
+    font-size: 20px; /* Set font size */
+    font-weight: bold; /* Set font weight to bold */
+  }
+  
+  .user_details h2:last-child {
+    margin-bottom: 0; /* Remove margin for the last child */
+  }
+  

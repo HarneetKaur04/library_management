@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/home';
+import Home from './components/home';
 import Books from './components/Books';
 import BookDetails from './components/BookDetails';
 import Footer from "./components/Footer";
@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AddBook from './components/AddBook';
 import User from './components/Users';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/books/:id" element={<BookDetails />} />
                 <Route path="/add-books" element={<AddBook/>} />
                 <Route path="/view-users" element={<User/>} />
+                <Route path="/profile" element={<UserProfile/>} />
               </Routes>
               <Footer />
             </div>

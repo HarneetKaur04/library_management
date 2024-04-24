@@ -1,4 +1,5 @@
 import React from 'react'
+import './Footer.css'; // Import CSS file for styling
 
 const Footer = () => {
     return (
@@ -14,7 +15,7 @@ const Footer = () => {
                     </a>
                 </li>
             </ul>
-            <div>Copyright © 2022 Harneet Kaur</div>
+            <div>Copyright © 2024 Harneet Kaur</div>
         </div>
     )
 }

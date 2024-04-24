@@ -28,6 +28,20 @@
     flex: 0 0 100%;
     margin-bottom: 20px;
   }
+
+  .alphabet-filter button {
+    margin-right: 2px;
+    display: inline;
+    background-color: white;
+    color:black;
+    font-weight: bold;
+    width:50px;
+  }
+
+  .alphabet-filter button:hover{
+    background-color: brown;
+    color: white;
+  }
   
   input[type="text" i] {
     padding-block: 1px;

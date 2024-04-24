@@ -1,0 +1,40 @@
+.footerCenter {
+    display: flex; /* Use flexbox to align items */
+    justify-content: center; /* Center align items horizontally */
+    align-items: center; /* Center align items vertically */
+    margin-top: 20px; /* Add margin on top */
+    background-color: black; /* Set background color */
+    padding: 20px; /* Add padding */
+    color:white;
+  }
+  
+  .footer {
+    list-style-type: none; /* Remove default list style */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox to align items */
+  }
+  
+  .footer li {
+    margin-right: 10px; /* Add margin between list items */
+  }
+  
+  .footer a {
+    color: #333; /* Set link color */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  .footer a:hover {
+    color: #007bff; /* Change link color on hover */
+  }
+  
+  .footer i {
+    font-size: 24px; /* Set icon size */
+  }
+  
+  .footer div {
+    margin-left: 20px; /* Add margin on the left side */
+    font-size: 14px; /* Set font size */
+    color: #333; /* Set text color */
+  }
+  

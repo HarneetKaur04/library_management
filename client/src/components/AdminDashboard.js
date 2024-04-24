@@ -25,31 +25,25 @@ const AdminDashboard = () => {
       .catch(error => console.error('Error fetching total books:', error));
   }, []);
 
-  // Function to handle click on the Users bar
-  const handleUsersBarClick = () => {
-    // Navigate to view-users page
+  const handleUsersButtonClick = () => {
     navigate('/view-users');
   };
 
-  // Function to handle click on the Books bar
-  const handleBooksBarClick = () => {
-    // Navigate to view-users page
+  const handleBooksButtonClick = () => {
     navigate('/books');
   };
 
-  // Data for the bar chart
   const data = {
     labels: ['Users', 'Books'],
     datasets: [
       {
         label: 'Total',
-        backgroundColor: ['#007bff', '#28a745'], // Blue for users, green for books
+        backgroundColor: ['#007bff', '#28a745'],
         data: [totalUsers, totalBooks]
       }
     ]
   };
 
-  // Options for the bar chart
   const options = {
     scales: {
       y: {
@@ -58,14 +52,6 @@ const AdminDashboard = () => {
       x: {
         type: 'category'
       }
-    },
-    onClick: (event, elements) => {
-      // Check if click occurred on the Books bar
-      if (elements[0] && elements[0].datasetIndex === 0) {
-        handleUsersBarClick();
-      } else if (elements[1] && elements[1].datasetIndex === 1) {
-        handleBooksBarClick()
-      }
     }
   };
 
@@ -73,8 +59,12 @@ const AdminDashboard = () => {
     <div className='admin-dash'>
       <h2>Welcome Admin</h2>
       <p>Here's your Admin Dashboard.</p>
+      <div className="button-container">
+        <button className="admin-button" onClick={handleUsersButtonClick}>Users</button>
+        <button className="admin-button" onClick={handleBooksButtonClick}>Books</button>
+      </div>
       <div className="chart-container">
-        <Bar data={data} options={options} />
+        <Bar id="bar-chart" data={data} options={options} />
       </div>
     </div>
   );

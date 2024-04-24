@@ -58,6 +58,7 @@
   z-index: 2; /* Ensure the dropdown container is above other content */
   font-size: 15px;
   transition: background-color 0.4s;
+  margin-top: -20px;
 }
 
 /* Dropdown content style */
@@ -94,8 +95,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color:white;
-  color: black
+  background-color:brown;
 }
 
 
@@ -108,10 +108,11 @@
 /* Logout button style */
 .topRight button {
   margin-left: 20px;
-  background-color: transparent;
+  background-color: brown;
   color: #fff;
   border: none;
   cursor: pointer;
+  margin:0;
 }
 
 /* Profile link style */

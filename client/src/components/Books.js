@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Books.css'; // Import CSS file for styling
 import BookDetails from './BookDetails'; // Import BookDetails component
 import Modal from './Modal'; // Import Modal component
-import { useAdminStatus } from '../AdminStatusContext';
 import { useUser } from '../UserContext';
 
 function Books() {

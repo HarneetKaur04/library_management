@@ -46,7 +46,7 @@ const Navbar = () => {
                 <button className="dropbtn">Users</button>
                 <div className="dropdown-content">
                   <Link to="/view-users">View Users</Link>
-                  <Link to="/add-users">Add Users</Link>
+                  <Link to="/register">Add Users</Link>
                 </div>
               </div>
             </li>
@@ -84,8 +84,8 @@ const Navbar = () => {
       <div className="topRight">
         {user ? (
           <>
-            <Link className="link" to={isAdmin ? "/admin/profile" : "/user/profile"}>
-              {isAdmin ? `Hello Admin` : `Hello ${user.username}`}
+            <Link className="link" to={"/profile"}>
+              {isAdmin ? `Hello admin` : `Hello ${user.username}`}
             </Link>
             <button onClick={handleLogout}>Logout</button>
           </>

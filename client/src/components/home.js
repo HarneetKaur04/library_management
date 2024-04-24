@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Login from '../components/Login';
-import UserDashboard from '../components/UserDashboard';
-import AdminDashboard from '../components/AdminDashboard';
+import Login from './Login';
+import UserDashboard from './UserDashboard';
+import AdminDashboard from './AdminDashboard';
 import { useAdminStatus } from '../AdminStatusContext';
 import { useUser } from '../UserContext';
 import './home.css';

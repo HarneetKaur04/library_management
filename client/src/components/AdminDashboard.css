@@ -14,7 +14,6 @@
   .chart-container {
     width: 80%; /* Adjust the width as needed */
     margin: 20px auto; /* Center the container horizontally and add margin */
-    cursor: pointer;
   }
   
   /* Style for the button */
@@ -32,5 +31,31 @@
   
   button:hover {
     background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+
+  /* AdminDashboard.css */
+
+/* Style for the button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the admin button */
+  .admin-button {
+    padding: 10px 20px;
+    background-color: #79670e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Add some spacing between buttons */
+  }
+  
+  .admin-button:hover {
+    background-color: #0056b3;
   }
   

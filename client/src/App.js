@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
 import AddBook from './components/AddBook';
+import User from './components/Users';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/books" element={<Books />} />
                 <Route path="/books/:id" element={<BookDetails />} />
                 <Route path="/add-books" element={<AddBook/>} />
+                <Route path="/view-users" element={<User/>} />
               </Routes>
               <Footer />
             </div>

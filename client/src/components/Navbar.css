@@ -23,15 +23,18 @@
 
 /* Links in the top navigation */
 .link {
-  color: #fff;
   text-decoration: none;
   margin-right: 20px;
+  font-size: 15px;
+  color: black;
 }
 
 /* List container for the top navigation */
 .topList {
   display: flex;
   list-style-type: none;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 
 /* List items in the top navigation */
@@ -42,24 +45,31 @@
 /* Dropdown button style */
 .dropbtn {
   background-color: transparent;
-  color: #fff;
   border: none;
   cursor: pointer;
+  color:black;
+  font-size: 15px;
 }
 
 /* Dropdown container style */
 .dropdown {
   position: relative;
   display: inline-block;
+  z-index: 2; /* Ensure the dropdown container is above other content */
+  font-size: 15px;
+  transition: background-color 0.4s;
 }
 
 /* Dropdown content style */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #333; /* Change dropdown background color */
+  background-color: #333333;
   min-width: 160px;
-  z-index: 1;
+  border-radius: 6px;
+  color:white;
+  transition: opacity 0.3s; /* Add transition for opacity */
+  opacity: 0; /* Initially hide the dropdown */
 }
 
 /* Dropdown links style */
@@ -68,14 +78,44 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  z-index: 2;
 }
 
 /* Show dropdown on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+  opacity: 1;
 }
 
 /* Change color of dropdown button on hover */
 .dropdown:hover .dropbtn {
-  background-color: #555;
+  background-color: white;
+  z-index: 2;
+}
+
+.dropdown-content a:hover {
+  background-color:white;
+  color: black
+}
+
+
+/* Style for the right side of the top container */
+.topRight {
+  display: flex;
+  align-items: center;
+}
+
+/* Logout button style */
+.topRight button {
+  margin-left: 20px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Profile link style */
+.topRight .link {
+  color: #fff;
+  text-decoration: none;
 }

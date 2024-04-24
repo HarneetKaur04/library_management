@@ -1,28 +1,49 @@
 /* Center content vertically and horizontally */
 .home {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
 /* Style the library image */
+.library-image {
+  position: relative;
+  width: 100%;
+}
+
+/* Style the library image */
 .library-image img {
   max-width: 100%;
   height: auto;
+  display: block;
+}
+
+/* Style the login card */
+.login-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
 }
 
 /* Style the dashboard card */
 .dashboard-card {
   position: absolute;
-  top: 20%;
-  transform: translateY(-50%);
+  top: 0;
   width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
 }
 
 /* Common styles for cards */
-.card {
+.login-card {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
@@ -50,27 +71,26 @@ p {
 
 /* Login button */
 .btn {
-  width: 150px; /* Set width as needed */
-  height: 50px; /* Set height as needed */
+  width: 150px;
+  height: 50px;
   border: none;
-  background-color: #007bff; /* Button color */
-  color: #fff; /* Text color */
+  background-color: #007bff;
+  color: #fff;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth hover transition */
+  transition: background-color 0.3s ease;
 }
 
 /* Hover effect for login button */
 .btn:hover {
-  background-color: #0056b3; /* Darker color on hover */
+  background-color: #0056b3;
 }
 
-/* logout button */
-
+/* Logout button */
 .btn.btn-danger.btn-block {
   color: blue;
   background-color: white;
-  width:auto;
+  width: auto;
   height: 20%;
   border-radius: none;
 }

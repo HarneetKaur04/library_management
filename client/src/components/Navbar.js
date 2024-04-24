@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import NavLink for active link styling
 import './Navbar.css'; // Import CSS file
 import { useNavigate } from 'react-router-dom';
 import { useAdminStatus } from '../AdminStatusContext';
@@ -36,7 +36,7 @@ const Navbar = () => {
               <button className="dropbtn">Books</button>
               <div className="dropdown-content">
                 <Link to="/books">View Books</Link>
-                {user? <Link to="/add-books">Add Books</Link> : <Link to="/login">Add Books</Link>}
+                {user ? <Link to="/add-books">Add Books</Link> : <Link to="/login">Add Books</Link>}
               </div>
             </div>
           </li>
@@ -51,24 +51,33 @@ const Navbar = () => {
               </div>
             </li>
           )}
-          {user? <><li className="topListItem">
-            <Link className="link" to="/check-in-out">
-              Check-In/Check-Out
-            </Link>
-          </li><li className="topListItem">
-              <Link className="link" to="/reserve-books">
-                Reserve Books
-              </Link>
-            </li></> : 
-          <><li className="topListItem">
-              <Link className="link" to="/login">
-                Check-In/Check-Out
-              </Link>
-            </li><li className="topListItem">
+          {user ? (
+            <>
+              <li className="topListItem">
+                <Link className="link" to="/check-in-out">
+                  Check-In/Check-Out
+                </Link>
+              </li>
+              <li className="topListItem">
+                <Link className="link" to="/reserve-books">
+                  Reserve Books
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="topListItem">
+                <Link className="link" to="/login">
+                  Check-In/Check-Out
+                </Link>
+              </li>
+              <li className="topListItem">
                 <Link className="link" to="/login">
                   Reserve Books
                 </Link>
-              </li></>}
+              </li>
+            </>
+          )}
         </ul>
       </div>
 

@@ -148,8 +148,8 @@ function Books() {
               {/* used stopPropagatio as edit button was calling both handleEditBook and handleBookClick leading to modal not opening */}
               {user ? (
               <>
-                <button onClick={(e) => { e.stopPropagation(); handleEditBook(book.id); }}>Edit</button>
-                <button onClick={() => handleDeleteBook(book.id)}>Delete</button>
+                <button className="edit-btn" onClick={(e) => { e.stopPropagation(); handleEditBook(book.id); }}>Edit</button>
+                <button className="delete-btn" onClick={() => handleDeleteBook(book.id)}>Delete</button>
               </>
             ) : null}
             </li>

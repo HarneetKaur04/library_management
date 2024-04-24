@@ -1,0 +1,75 @@
+.login-form {
+    max-width: 400px; /* Set maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add some padding around the form */
+  }
+  
+  .login-form div {
+    margin-bottom: 20px; /* Add margin between form elements */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Align items vertically */
+  }
+  
+  .login-form label {
+    flex: 1; /* Let labels grow to take available space */
+    margin-right: 10px; /* Add margin between label and input */
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  .login-form input {
+    flex: 2; /* Let input fields grow to take more space */
+    width: 100%; /* Make input fields fill the width of their container */
+    padding: 8px; /* Add padding to input fields */
+    border: 1px solid #ccc; /* Add border to input fields */
+    border-radius: 4px; /* Add border radius to input fields */
+  }
+  
+  .login-form p {
+    margin-top: 10px; /* Add margin above error message */
+  }
+  
+  .login-form button {
+    width: 30%; /* Make button fill the width of the container */
+    padding: 10px; /* Add padding to button */
+    background-color: #007bff; /* Set background color for button */
+    color: #fff; /* Set text color for button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Add border radius to button */
+    cursor: pointer; /* Set cursor to pointer */
+    transition: background-color 0.3s; /* Add transition for hover effect */
+    margin:auto;
+  }
+  
+  .login-form button:hover {
+    background-color: #0056b3; /* Darken background color on hover */
+  }
+
+  .login-form h2 {
+    font-size: 24px; /* Increase font size */
+    margin-bottom: 25px; /* Add margin below the heading */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 1px; /* Add spacing between letters */
+    font-weight: bold; /* Make text bold */
+    text-align: center;
+  }
+
+
+  /* register link styling */
+
+  .login-card p {
+    margin-top: 20px; /* Add some space above the paragraph */
+    text-align: center; /* Center align the text */
+  }
+  
+  .login-card p a {
+    color: #007bff; /* Set link color */
+    text-decoration: none; /* Remove default underline */
+    font-weight: bold; /* Make the link bold */
+  }
+  
+  .login-card p a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+  

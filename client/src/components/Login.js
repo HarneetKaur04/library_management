@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminStatus } from '../AdminStatusContext';
 import { useUser } from '../UserContext';
+import './Login.css';
 
 const Login = () => {
   const { updateAdminStatus } = useAdminStatus();
@@ -53,8 +54,8 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Login</h2>
         <div>
           <label>Email:</label>
           <input

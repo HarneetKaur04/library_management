@@ -2,99 +2,130 @@
     position: relative;
   }
   
-.background-image {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: -1; /* Ensure the background image stays behind the content */
-background-size: cover;
-background-position: center;
-opacity: 0.5; /* Set the initial opacity */
-transition: opacity 0.5s ease-in-out; /* Add smooth transition for opacity */
-}
-
-.content-container {
-display: flex; /* Use flexbox layout */
-max-width: 1200px; /* Increase max-width to accommodate both the list and details */
-margin: 0 auto;
-padding: 20px; /* Adjust as needed */
-flex-wrap: wrap; /* Wrap items to the next line if needed */
-}
-
-.alphabet-filter {
-flex: 0 0 100%; /* Take up full width */
-margin-right: 20px; /* Add margin to separate the filter and the list */
-margin-bottom: 20px; /* Add margin to separate alphabet filter and search bar */
-width: 100%;
-}
-
-.search-filter {
-flex: 0 0 100%; /* Take up full width */
-margin-bottom: 20px; /* Add margin to separate the search bar and the list */
-}
-
-input[type="text" i] {
-padding-block: 1px;
-padding-inline: 2px;
-width:250px;
-}
-
-.all-books {
-flex: 1; /* Allow the list to grow to take available space */
-}
-
-.book-details {
-flex: 1; /* Allow the details to grow to take available space */
-margin-left: 10%;
-margin-top: 0.5%;
-}
-
-h2 {
-font-size: 20px;
-margin-bottom: 10px; /* Reduce margin for section headings */
-margin-right: 10px;
-}
-
-.alphabet-filter h2 {
-margin-bottom: 20px; /* Increase margin for alphabet heading */
-}
-
-ul {
-list-style: none;
-padding: 0;
-}
-
-li {
-font-size: 18px;
-padding: 10px;
-margin-bottom: 5px;
-background-color: #f9f9f9;
-border: 1px solid #eee;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s;
-}
-
-li:hover {
-background-color: #f0f0f0;
-}
-
-.book-details-container {
-background-color: #f9f9f9;
-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-padding: 20px;
-border-radius: 5px;
-margin-top: 10%;
-}
-
-.book-details-container h2 {
-font-size: 30px;
-margin-bottom: 10px;
-}
-
-.book-details-container p {
-font-size: 18px;
-margin-bottom: 5px;
-}  
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .content-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px; 
+    flex-wrap: wrap;
+  }
+  
+  .alphabet-filter,
+  .search-filter {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text" i] {
+    padding-block: 1px;
+    padding-inline: 2px;
+    width: 250px;
+  }
+  
+  .all-books {
+    flex: 1;
+  }
+  
+  .book-details {
+    flex: 1;
+    margin-left: 10%;
+    margin-top: 0.5%;
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  
+  .alphabet-filter h2 {
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .book-details-container {
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 10%;
+  }
+  
+  .book-details-container h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .book-details-container p {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  /* Adjust the positioning of the buttons */
+  .edit-btn {
+    margin-left: auto;
+    margin-right: 5px;
+  }
+  
+  /* edit and delete button */
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn {
+    background-color: #408ee2;
+    color: #fff;
+  }
+  
+  .delete-btn {
+    background-color: #f6828d;
+    color: #fff;
+  }
+  
+  /* Hover effects */
+  .edit-btn:hover,
+  .delete-btn:hover {
+    opacity: 0.5;
+  }
+  

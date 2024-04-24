@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Register a new user
+// Register or Add a new user
 router.post('/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -94,18 +94,18 @@ router.post('/login', async (req, res) => {
 });
 
 // Delete user account
-router.delete('/delete', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const { email } = req.body;
+    const userId = req.params.id;
 
     // Check if the user exists
-    const user = await db.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (user.rows.length === 0) {
+    const user = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
+    if (user.length === 0) {
       return res.status(404).json({ error: 'User not found' });
     }
 
     // Delete the user from the database
-    await db.query('DELETE FROM users WHERE email = $1', [email]);
+    await db.query('DELETE FROM users WHERE id = $1', [userId]);
 
     res.status(200).json({ message: 'User account deleted successfully' });
   } catch (error) {
@@ -113,5 +113,28 @@ router.delete('/delete', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// Edit a user information
+router.put('/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const { username, email } = req.body;
+
+    // Check if the user exists
+    const user = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
+    if (user.length === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Update the user's information in the database
+    await db.query('UPDATE users SET username = $1, email = $2 WHERE id = $3', [username, email, userId]);
+
+    res.status(200).json({ message: 'User information updated successfully' });
+  } catch (error) {
+    console.error('Error updating user information:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 module.exports = router;

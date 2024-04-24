@@ -1,17 +1,26 @@
 import React from 'react';
-import AuthNav from './Auth0/auth-nav';
 import { Link } from "react-router-dom";
-import { useAuth0 } from '@auth0/auth0-react';
-import Loading from "./Auth0/loading";
 import './Navbar.css'; // Import CSS file
+import { useNavigate } from 'react-router-dom';
+import { useAdminStatus } from '../AdminStatusContext';
+import { useUser } from '../UserContext';
 
 const Navbar = () => {
+  const { isAdmin, updateAdminStatus } = useAdminStatus(); // Use the useAdminStatus hook to get isAdmin state
+  const { user, updateUser } = useUser(); // Use the useUser hook to get user data
+  const navigate = useNavigate();
 
-  const { isLoading, user } = useAuth0();
+  // Function to handle logout
+  const handleLogout = () => {
+    // Clear user data from context
+    updateUser(null);
+    
+    // Clear admin status from context
+    updateAdminStatus(false);
 
-  if (isLoading) {
-    return <Loading />;
-  }
+    // Redirect to the login page
+    navigate('/login');
+  };
 
   return (
     <div className="top">
@@ -41,32 +50,17 @@ const Navbar = () => {
       </div>
 
       <div className="topRight">
-        {user && (
+        {user ? (
           <>
-            <Link className="link" to="/me">
-              <img
-                className="topImgRight"
-                src="https://static6.depositphotos.com/1010340/585/v/600/depositphotos_5859083-stock-illustration-panda-cartoon.jpg"
-                alt="Happy panda facing front"
-              />
+            <Link className="link" to={isAdmin ? "/admin/profile" : "/user/profile"}>
+              {isAdmin ? `Hello Admin` : `Hello ${user.username}`}
             </Link>
-            <span>Hello {user.name}</span>
+            <button onClick={handleLogout}>Logout</button>
           </>
-        )}
-
-        {!user && (
-          <>
-            <li className="topListItem">
-              <Link className="link" to="/login">
-                <AuthNav />
-              </Link>
-            </li>
-            <li className="topListItem">
-              <Link className="link" to="/signup">
-                SIGN UP
-              </Link>
-            </li>
-          </>
+        ) : (
+          <Link className="link" to="/login">
+            Login
+          </Link>
         )}
       </div>
     </div>

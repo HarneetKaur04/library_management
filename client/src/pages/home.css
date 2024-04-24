@@ -1,47 +1,76 @@
-/* Home.css */
+/* Center content vertically and horizontally */
 .home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-h1 {
-    color: white;
-}
-
+/* Style the library image */
 .library-image img {
-    opacity: 0.6;
-  }
-.search-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-input[type="text"] {
-  padding: 10px;
-  width: 300px;
+  max-width: 100%;
+  height: auto;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+/* Style the dashboard card */
+.dashboard-card {
+  position: absolute;
+  top: 20%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+/* Common styles for cards */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header style */
+h2 {
+  margin-top: 0;
+}
+
+/* Paragraph style */
+p {
+  margin-bottom: 0;
+}
+
+/* Login button container */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Login button */
+.btn {
+  width: 150px; /* Set width as needed */
+  height: 50px; /* Set height as needed */
   border: none;
+  background-color: #007bff; /* Button color */
+  color: #fff; /* Text color */
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth hover transition */
 }
 
-.welcome-text {
-    animation: slideIn 1s ease-in-out;
-  }
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+/* Hover effect for login button */
+.btn:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
+
+/* logout button */
+
+.btn.btn-danger.btn-block {
+  color: blue;
+  background-color: white;
+  width:auto;
+  height: 20%;
+  border-radius: none;
+}

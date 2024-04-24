@@ -5,7 +5,7 @@ function BookDetails({ bookId }) {
 
   useEffect(() => {
     // Fetch book details data from API based on bookId
-    fetch(`/api/books/${bookId}`)
+    fetch(`http://localhost:5000/api/books/${bookId}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

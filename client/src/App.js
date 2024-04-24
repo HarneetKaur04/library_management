@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
-import Login from './components/Login';
-import Register from './components/Register';
 import Books from './components/Books';
 import BookDetails from './components/BookDetails';
 import Footer from "./components/Footer";
 import Navbar from './components/Navbar';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
   return (

@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
       res.status(200).json(books);
     } catch (error) {
       console.error("Error:", error.message);
-      res.status(500).json({ error: "Internal server error..." });
+      res.status(500).json({ error: "Internal server error...lol" });
     }
 });
 

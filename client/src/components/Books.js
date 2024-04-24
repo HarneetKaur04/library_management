@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BookDetails from './BookDetails';
+import './Books.css'; // Import CSS file for styling
 
 function Books() {
   const [books, setBooks] = useState([]);
@@ -7,7 +8,7 @@ function Books() {
 
   useEffect(() => {
     // Fetch books data from API
-    fetch('/api/books')
+    fetch('http://localhost:5000/api/books')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

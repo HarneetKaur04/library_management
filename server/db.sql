@@ -61,7 +61,7 @@ Pride,Jane,9780141439518,Fiction,1813-01-28,2022-04-10 09:00:00,2022-04-10 09:00
 \.
 
 -- Data for users table
-COPY public.users (username, email, password, created_at, updated_at) FROM stdin with delimiter ',';
+COPY public.users (id, username, email, password, created_at, updated_at) FROM stdin with delimiter ',';
 user1,user1@example.com,password1,2022-04-10 09:00:00,2022-04-10 09:00:00
 user2,user2@example.com,password2,2022-04-10 09:00:00,2022-04-10 09:00:00
 user3,user3@example.com,password3,2022-04-10 09:00:00,2022-04-10 09:00:00

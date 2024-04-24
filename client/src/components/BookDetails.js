@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Books.css'; // Import CSS file for styling
 
 function BookDetails({ bookId }) {
   const [bookDetails, setBookDetails] = useState(null);
@@ -25,8 +26,8 @@ function BookDetails({ bookId }) {
   }
 
   return (
-    <div className="book-details">
-      <h2>{bookDetails.title}</h2>
+    <div className="book-details-container">
+      <h2>Title: {bookDetails.title}</h2>
       <p><strong>Author:</strong> {bookDetails.author}</p>
       <p><strong>ISBN:</strong> {bookDetails.isbn}</p>
       <p><strong>Genre:</strong> {bookDetails.genre}</p>

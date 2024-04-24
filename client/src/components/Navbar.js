@@ -32,20 +32,43 @@ const Navbar = () => {
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItem">
-            <Link className="link" to="/books">
-              ALL BOOKS
-            </Link>
+            <div className="dropdown">
+              <button className="dropbtn">Books</button>
+              <div className="dropdown-content">
+                <Link to="/books">View Books</Link>
+                {user? <Link to="/add-books">Add Books</Link> : <Link to="/login">Add Books</Link>}
+              </div>
+            </div>
           </li>
-          <li className="topListItem">
-            <Link className="link" to="/myparks">
-              ADD BOOKS
+          {isAdmin && (
+            <li className="topListItem">
+              <div className="dropdown">
+                <button className="dropbtn">Users</button>
+                <div className="dropdown-content">
+                  <Link to="/view-users">View Users</Link>
+                  <Link to="/add-users">Add Users</Link>
+                </div>
+              </div>
+            </li>
+          )}
+          {user? <><li className="topListItem">
+            <Link className="link" to="/check-in-out">
+              Check-In/Check-Out
             </Link>
-          </li>
-          <li className="topListItem">
-            <Link className="link" to="/contact">
-              CONTACT
-            </Link>
-          </li>
+          </li><li className="topListItem">
+              <Link className="link" to="/reserve-books">
+                Reserve Books
+              </Link>
+            </li></> : 
+          <><li className="topListItem">
+              <Link className="link" to="/login">
+                Check-In/Check-Out
+              </Link>
+            </li><li className="topListItem">
+                <Link className="link" to="/login">
+                  Reserve Books
+                </Link>
+              </li></>}
         </ul>
       </div>
 

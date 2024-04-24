@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
+import AddBook from './components/AddBook';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/books" element={<Books />} />
                 <Route path="/books/:id" element={<BookDetails />} />
+                <Route path="/add-books" element={<AddBook/>} />
               </Routes>
               <Footer />
             </div>

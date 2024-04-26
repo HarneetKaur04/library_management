@@ -54,21 +54,19 @@
     text-align: center;
   }
 
+  .register-link {
+    margin: 0;
+  }
 
   /* register link styling */
-
-  .login-card p {
-    margin-top: 20px; /* Add some space above the paragraph */
-    text-align: center; /* Center align the text */
-  }
   
-  .login-card p a {
+  .login-form p a {
     color: #007bff; /* Set link color */
     text-decoration: none; /* Remove default underline */
     font-weight: bold; /* Make the link bold */
   }
   
-  .login-card p a:hover {
+  .login-form p a:hover {
     text-decoration: underline; /* Add underline on hover */
   }
   

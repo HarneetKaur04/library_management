@@ -6,8 +6,9 @@ CREATE TABLE books (
     isbn VARCHAR(30) UNIQUE NOT NULL,
     genre VARCHAR(20),
     publication_date DATE,
+    availability_status VARCHAR(20) DEFAULT 'available', -- possible values are available, checked_out
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 );
 
 -- Create the table for users
@@ -16,17 +17,20 @@ CREATE TABLE users (
     username VARCHAR(100) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
+    contact_details VARCHAR(15) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create the table for borrowing history
-CREATE TABLE borrow_history (
+-- Create the table for book transactions
+CREATE TABLE book_transactions (
     id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id),
     book_id INTEGER REFERENCES books(id),
-    borrow_date DATE NOT NULL,
-    return_date DATE,
-    returned BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    user_id INTEGER REFERENCES users(id),
+    transaction_type VARCHAR(20) NOT NULL CHECK (transaction_type IN ('check_out', 'check_in', 'reserve')),
+    transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    reserve_date TIMESTAMP,
+    checkout_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    return_date TIMESTAMP,
+    CONSTRAINT unique_transaction UNIQUE (book_id, user_id, transaction_type)
 );

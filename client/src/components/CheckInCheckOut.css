@@ -1,0 +1,28 @@
+.checkinout-container {
+    margin: 20px auto;
+    width: 60%;
+}
+
+.checkinout-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.checkinout-card h2 {
+    margin-bottom: 10px;
+}
+
+.checkinout-select {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.checkinout-button {
+    margin-top: 10px;
+}
+
+.checkinout-message {
+    margin-top: 10px;
+}

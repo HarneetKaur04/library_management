@@ -10,6 +10,8 @@ import Register from './components/Register';
 import AddBook from './components/AddBook';
 import User from './components/Users';
 import UserProfile from './components/UserProfile';
+import CheckInOut from './components/CheckInCheckOut'
+import Reserve from './components/Reserve'
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
                 <Route path="/add-books" element={<AddBook/>} />
                 <Route path="/view-users" element={<User/>} />
                 <Route path="/profile" element={<UserProfile/>} />
+                <Route path="/check-in-out" element={<CheckInOut/>} />
+                <Route path="/reserve-books" element={<Reserve/>} />
               </Routes>
               <Footer />
             </div>

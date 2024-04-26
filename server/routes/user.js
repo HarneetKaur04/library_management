@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 // Register or Add a new user
 router.post('/register', async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, contact } = req.body;
     
     // Check if the email is already registered
     console.log(req.body)
@@ -35,7 +35,7 @@ router.post('/register', async (req, res) => {
     console.log("hashedPassword", hashedPassword)
 
     // Insert the new user into the database
-    await db.query('INSERT INTO users (username, email, password) VALUES ($1, $2, $3)', [username, email, hashedPassword]);
+    await db.query('INSERT INTO users (username, email, password, contact_details) VALUES ($1, $2, $3, $4)', [username, email, hashedPassword, contact]);
 
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {

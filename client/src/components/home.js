@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Login from './Login';
 import UserDashboard from './UserDashboard';
 import AdminDashboard from './AdminDashboard';
@@ -23,7 +22,6 @@ const Home = () => {
         ) : (
           <div className="login-card">
             <Login />
-            <p>Not a member? <Link to="/register">Register</Link></p>
           </div>
         )}
 

@@ -1,5 +1,5 @@
 -- Drop the table for borrowing history
-DROP TABLE IF EXISTS borrow_history;
+DROP TABLE IF EXISTS book_transactions;
 
 -- Drop the table for users
 DROP TABLE IF EXISTS users;

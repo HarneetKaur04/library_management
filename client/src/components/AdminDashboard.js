@@ -60,8 +60,12 @@ const AdminDashboard = () => {
       <h2>Welcome Admin</h2>
       <p>Here's your Admin Dashboard.</p>
       <div className="button-container">
-        <button className="admin-button" onClick={handleUsersButtonClick}>Users</button>
-        <button className="admin-button" onClick={handleBooksButtonClick}>Books</button>
+        <button className="admin-button" onClick={() => navigate('/view-users')}>View/Edit/Delete all registered users</button>
+        <button className="admin-button" onClick={() => navigate('/register')}>Add a new user</button>
+        <button className="admin-button" onClick={() => navigate('/books')}>View/Edit/Delete catalogue of books</button>
+        <button className="admin-button" onClick={() => navigate('/add-books')}>Acquire a new book for library</button> 
+        <button className="admin-button" onClick={() => navigate('/check-in-out')}>Initiate a check-in/check-out for a user</button>
+        <button className="admin-button" onClick={() => navigate('/reserve-books')}>Reserve a book for a user</button>
       </div>
       <div className="chart-container">
         <Bar id="bar-chart" data={data} options={options} />

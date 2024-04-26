@@ -21,6 +21,10 @@
   text-decoration: none;
 }
 
+.homeLink:hover {
+  color: #79670e;
+}
+
 /* Links in the top navigation */
 .link {
   text-decoration: none;
@@ -95,7 +99,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color:brown;
+  background-color:#79670e;
 }
 
 
@@ -108,7 +112,7 @@
 /* Logout button style */
 .topRight button {
   margin-left: 20px;
-  background-color: brown;
+  background-color: #79670e;
   color: #fff;
   border: none;
   cursor: pointer;

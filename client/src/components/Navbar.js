@@ -26,7 +26,7 @@ const Navbar = () => {
     <div className="top">
       <div className="topLeft">
         <Link className="homeLink" to="/">
-          LMS
+          LIBRARY MANAGEMENT SYSTEM
         </Link>
       </div>
       <div className="topCenter">

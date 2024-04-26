@@ -101,39 +101,38 @@ const User = () => {
       <h2>LIST OF ALL USERS</h2>
       <ul className="user-list">
       {users
-  .filter(user => user.email !== 'test@test.com')
-  .map(user => (
-    <li key={user.id} className="user-item">
-      {isEditing === user.id ? (
-        // Render input fields for editing if user is being edited
-        <>
-          <input
-            type="text"
-            name="username"
-            value={editedUser.username}
-            onChange={handleInputChange}
-            className="input-field"
-          />
-          <input
-            type="text"
-            name="email"
-            value={editedUser.email}
-            onChange={handleInputChange}
-            className="input-field"
-          />
-          <button onClick={handleSaveEdit} className="action-button edit-button">Save</button>
-        </>
-      ) : (
-        // Render user details if user is not being edited
-        <>
-          <p><strong>USERNAME:</strong> {user.username}, <strong>EMAIL:</strong> {user.email}</p>
-          <button onClick={() => handleEditUser(user.id)} className="action-button edit-button">Edit</button>
-          <button onClick={() => handleDeleteUser(user.id)} className="action-button delete-button">Delete</button>
-        </>
-      )}
-    </li>
-  ))}
-
+      .filter(user => user.email !== 'admin@test.com')
+      .map(user => (
+        <li key={user.id} className="user-item">
+          {isEditing === user.id ? (
+            // Render input fields for editing if user is being edited
+            <>
+              <input
+                type="text"
+                name="username"
+                value={editedUser.username}
+                onChange={handleInputChange}
+                className="input-field"
+              />
+              <input
+                type="text"
+                name="email"
+                value={editedUser.email}
+                onChange={handleInputChange}
+                className="input-field"
+              />
+              <button onClick={handleSaveEdit} className="action-button edit-button">Save</button>
+            </>
+          ) : (
+            // Render user details if user is not being edited
+            <>
+              <p><strong>USERNAME:</strong> {user.username}, <strong>EMAIL:</strong> {user.email}</p>
+              <button onClick={() => handleEditUser(user.id)} className="action-button edit-button">Edit</button>
+              <button onClick={() => handleDeleteUser(user.id)} className="action-button delete-button">Delete</button>
+            </>
+          )}
+        </li>
+      ))}
       </ul>
     </div>
   );

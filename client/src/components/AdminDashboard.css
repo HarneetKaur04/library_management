@@ -12,14 +12,14 @@
   
   /* Style for the chart container */
   .chart-container {
-    width: 80%; /* Adjust the width as needed */
+    width: 50%; /* Adjust the width as needed */
     margin: 20px auto; /* Center the container horizontally and add margin */
   }
   
   /* Style for the button */
   button {
     padding: 10px 20px; /* Add padding to the button */
-    background-color: #007bff; /* Blue background color */
+    background-color: #0056b3; /* Blue background color */
     color: #fff; /* White text color */
     border: none; /* Remove border */
     border-radius: 5px; /* Add border radius */
@@ -53,9 +53,11 @@
     cursor: pointer;
     transition: background-color 0.3s;
     margin-right: 10px; /* Add some spacing between buttons */
+    font:bold;
   }
   
   .admin-button:hover {
-    background-color: #0056b3;
+    background-color: white;
+    color:#79670e;
   }
   

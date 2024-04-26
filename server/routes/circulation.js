@@ -143,13 +143,17 @@ router.get("/update_books_availability", async (req, res) => {
           await db.query('INSERT INTO book_transactions (book_id, user_id, transaction_type, return_date) VALUES ($1, $2, $3, CURRENT_TIMESTAMP)', [bookId, userId, 'check_in']);
 
           await db.query('UPDATE books SET availability_status = $1 WHERE id = $2', ['available', bookId]);
+
+          console.log("executed")
     
           // Check if there are users who have reserved the book
           const reservedUsers = await db.query('SELECT * FROM book_transactions WHERE book_id = $1 AND transaction_type = $2 AND reserve_date <= CURRENT_TIMESTAMP', [bookId, 'reserve']);
+          console.log(reservedUsers, "reservedUser check1")
     
           // Perform check-out process for users who have reserved those books
           for (const reservedUser of reservedUsers) {
             const { book_id: reservedBookId, user_id: reservedUserId } = reservedUser;
+            console.log(reservedUser, "reservedUser")
                
             // Calculate return date (4 days from current timestamp)
             const returnDate = new Date();
@@ -157,6 +161,7 @@ router.get("/update_books_availability", async (req, res) => {
 
             // delete the reserve record
             await db.query('DELETE FROM book_transactions WHERE book_id = $1 AND user_id = $2 AND transaction_type = $3', [reservedBookId, reservedUserId, 'reserve']);
+            console.log("// delete the reserve record")
             // Insert transaction record for check-out
             await db.query('INSERT INTO book_transactions (book_id, user_id, transaction_type, transaction_date, checkout_date, return_date) VALUES ($1, $2, $3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, $4)', [reservedBookId, reservedUserId, 'check_out', returnDate]);
             // Update book availability status to checked out

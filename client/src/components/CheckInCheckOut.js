@@ -146,6 +146,7 @@ function CheckInOut() {
         <div className="checkinout-container">
             <h1>Library Books Check In/ Check Out System</h1>
             <div className="checkinout-card">
+                <p>Time to bring your literary companions back home! Check in your books and let them rest until your next journey together</p>
                 <h2>Check In Books</h2>
                 <select value={selectedCheckInBookId} onChange={(e) => setSelectedCheckInBookId(e.target.value)} className="checkinout-select">
                     <option value="">Select Book</option>
@@ -159,6 +160,7 @@ function CheckInOut() {
                 <p className='checkinout-message'>{checkInMessage}</p>
             </div>
             <div className="checkinout-card">
+                <p>Ready to dive into a new adventure? Book your next literary escape now!</p>
                 <h2>Check Out Books</h2>
                 <select value={selectedCheckOutBookId} onChange={(e) => setSelectedCheckOutBookId(e.target.value)} className="checkinout-select">
                     <option value="">Select Book</option>

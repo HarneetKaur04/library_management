@@ -1,3 +1,9 @@
+-- Drop the table for favorite_books
+DROP TABLE IF EXISTS favorite_books;
+
+-- Drop the table for checked_out_books
+DROP TABLE IF EXISTS checked_out_books;
+
 -- Drop the table for borrowing history
 DROP TABLE IF EXISTS book_transactions;
 

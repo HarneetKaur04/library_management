@@ -1,7 +1,11 @@
 .register-form {
-    max-width: 400px; /* Set maximum width for the form */
+    width: 40%; /* Set maximum width for the form */
     margin: 0 auto; /* Center the form horizontally */
     padding: 20px; /* Add some padding around the form */
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    margin-top:25px;
+    border-radius: 5px;
   }
   
   .register-form h2 {
@@ -14,23 +18,25 @@
   }
   
   .register-form input {
-    width: 100%; /* Make input fields fill the width of their container */
-    margin-bottom: 15px; /* Add margin between input fields */
-    padding: 10px; /* Add padding to input fields */
-    border: 1px solid #ccc; /* Add border to input fields */
-    border-radius: 4px; /* Add border radius to input fields */
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
   }
   
   .register-form button {
-    width: 50%; /* Make button fill the width of the container */
-    padding: 10px; /* Add padding to button */
-    background-color: #007bff; /* Set background color for button */
-    color: #fff; /* Set text color for button */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Add border radius to button */
-    cursor: pointer; /* Set cursor to pointer */
-    transition: background-color 0.3s; /* Add transition for hover effect */
-    margin: auto;
+    width: 100px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto; /* Center the button horizontally */
+    display: block; /* Ensure the button is a block-level element */
+    text-align: center; /* Center the text inside the button */
   }
   
   .register-form button:hover {

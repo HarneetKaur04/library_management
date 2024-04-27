@@ -62,7 +62,6 @@
   z-index: 2; /* Ensure the dropdown container is above other content */
   font-size: 15px;
   transition: background-color 0.4s;
-  margin-top: -20px;
 }
 
 /* Dropdown content style */
@@ -94,7 +93,6 @@
 
 /* Change color of dropdown button on hover */
 .dropdown:hover .dropbtn {
-  background-color: white;
   z-index: 2;
 }
 
@@ -117,10 +115,17 @@
   border: none;
   cursor: pointer;
   margin:0;
+  border-radius: 5px;
+  width:60px;
+  height:30px;
 }
 
 /* Profile link style */
 .topRight .link {
   color: #fff;
   text-decoration: none;
+}
+
+.topRight .link:hover {
+  color:#79670e;;
 }

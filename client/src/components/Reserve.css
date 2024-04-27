@@ -1,50 +1,65 @@
 .reserve-container {
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 2%;
+    margin: 20px auto;
+    width: 80%;
+    background-color: #f7f7f7;
     padding: 20px;
-    background: linear-gradient(135deg, #f7f2e7, #e9cbb0, #a77e51); /* Gradient background */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.reserve-container h2 {
-    text-align: center;
-    color: #333; /* Text color */
+.reserve-container-top-img {
+    display: flex;
+    align-items: center;
 }
 
-.reserve-description {
-    text-align: center;
+.reserve-image {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Add space between image and text */
+}
+
+.reserve-container-top-img h3 {
+    font-style: italic; /* Make the text italic */
+}
+
+.reserve-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
     margin-bottom: 20px;
-    color: #666; /* Text color */
+}
+
+.reserve-card h2 {
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .reserve-select {
-    width: 100%;
-    padding: 10px;
     margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
 }
 
 .reserve-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #6b96c4; /* Button color */
-    color: #fff;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #408ee2;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth hover transition */
+    transition: background-color 0.3s;
 }
 
 .reserve-button:hover {
-    background-color: #135cab; /* Darker button color on hover */
+    background-color: #3071a9;
 }
 
 .reserve-message {
-    text-align: center;
     margin-top: 10px;
-    color: #d9534f; /* Error message color */
+    color: #008000;
+    font-weight: bold;
 }

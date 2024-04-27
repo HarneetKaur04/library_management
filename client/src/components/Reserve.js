@@ -83,8 +83,11 @@ function Reserve() {
 
     return (
         <div className='reserve-container'>
-            <p>Secure your next literary treasure! Reserve a book now and dive into a world of imagination</p>
             <h2>Reserve a Book</h2>
+            <div className='container-top-img'>
+                    <img src="https://www.swanhillsschool.ca/wp-content/uploads/sites/16/2019/04/librarian2.gif" alt="Book Club" className="checkinout-image" />
+                    <h3>Secure your next literary treasure! Reserve a book now and dive into a world of imagination</h3>
+                </div>
             <p className='reserve-description'>Please select from the currently checked-out books that are not reserved. If you do not find your desired book listed, it may be available for immediate checkout or currently reserved by another user. You can navigate to the check-in/check-out tab for immediate availability or wait for the reservation to become available.</p>
             <select value={selectedBookId} onChange={(e) => setSelectedBookId(e.target.value)} className="reserve-select">
                 <option value="">Select a book to reserve</option>

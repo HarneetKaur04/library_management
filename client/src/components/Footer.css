@@ -1,40 +1,52 @@
 .footerCenter {
-    display: flex; /* Use flexbox to align items */
-    justify-content: center; /* Center align items horizontally */
-    align-items: center; /* Center align items vertically */
-    margin-top: 20px; /* Add margin on top */
-    background-color: black; /* Set background color */
-    padding: 20px; /* Add padding */
-    color:white;
+    position: fixed; /* Change to fixed position to keep the footer at the bottom of the viewport */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:30px;
+    transform: translateY(0); /* Use translateY to position it at the bottom */
+    z-index: 999; /* Ensure the footer appears above other content */
   }
+  
+  .content {
+    margin-bottom: 60px; /* Adjust this value to set the desired margin between content and footer */
+  }
+  
+  
   
   .footer {
-    list-style-type: none; /* Remove default list style */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Use flexbox to align items */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
   }
   
-  .footer li {
-    margin-right: 10px; /* Add margin between list items */
+  .social_media {
+    margin-right: 10px;
   }
   
-  .footer a {
-    color: #333; /* Set link color */
-    text-decoration: none; /* Remove default underline */
+  .social_media a {
+    color: black;
+    text-decoration: none;
   }
   
-  .footer a:hover {
-    color: #007bff; /* Change link color on hover */
+  .social_media a:hover {
+    color: #007bff;
   }
   
-  .footer i {
-    font-size: 24px; /* Set icon size */
+  .topIcon {
+    font-size: 24px;
   }
   
   .footer div {
-    margin-left: 20px; /* Add margin on the left side */
-    font-size: 14px; /* Set font size */
-    color: #333; /* Set text color */
+    margin-left: 20px;
+    font-size: 14px;
+    color: white;
   }
   

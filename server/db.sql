@@ -53,6 +53,22 @@ CREATE TABLE IF NOT EXISTS public.book_transactions (
     CONSTRAINT unique_transaction UNIQUE (book_id, user_id, transaction_type)
 );
 
+-- Create the table for checked out books
+CREATE TABLE IF NOT EXISTS public.checked_out_books (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES public.users(id),
+    book_id INTEGER REFERENCES public.books(id),
+    CONSTRAINT unique_checked_out UNIQUE (user_id, book_id)
+);
+
+-- Create the table for favorite books
+CREATE TABLE IF NOT EXISTS public.favorite_books (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES public.users(id),
+    book_id INTEGER REFERENCES public.books(id),
+    CONSTRAINT unique_favorite UNIQUE (user_id, book_id)
+);
+
 -- Data for books table
 COPY public.books (title, author, isbn, genre, publication_date, availability_status, created_at, updated_at) FROM stdin with delimiter ',';
 Mockingjay,Suzanne Collins,9780439023511,Fiction,2010-08-24,available,2022-04-10 00:00:00,2022-04-10 00:00:00
@@ -71,11 +87,11 @@ The Alchemist,Paulo Coelho,9780061122415,Fiction,1988-01-01,available,2022-04-10
 
 
 -- -- Data for users table
-COPY public.users (id, username, email, password, contact_details, created_at, updated_at) FROM stdin with delimiter ',';
-1,admin,admin@test.com,$2b$10$DDXQlfDYICViIH9p//qw5ujqt3Y6kEGWstNFRMpFnKfGjGGzsca2u,222-222-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
-2,Hugh Jackman,hjackman@example.com,$2b$10$HZWv2TaivjSHAwZRZ97XXO34gO4PfuCmum5.JFETexZIP0rI1rTaa,999-999-9999,2022-04-10 09:00:00,2022-04-10 09:00:00
-3,Chris Evans,chris@example.com,$2b$10$eqRzfuFQ4WIzbtS31FWwkOkXHG.SjOAsb3cCVYFQqmMMpwsROIR3i,222-222-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
-4,Jennifer Lawrence,jlawrence@example.com,$2b$10$1WVXia.oJ7DNfZaLfMNPouUBkvGrwafQvn5PIh2K0NR2u5NHI91uS,422-224-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
+COPY public.users (username, email, password, contact_details, created_at, updated_at) FROM stdin with delimiter ',';
+admin,admin@test.com,$2b$10$DDXQlfDYICViIH9p//qw5ujqt3Y6kEGWstNFRMpFnKfGjGGzsca2u,222-222-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
+Hugh Jackman,hjackman@example.com,$2b$10$HZWv2TaivjSHAwZRZ97XXO34gO4PfuCmum5.JFETexZIP0rI1rTaa,999-999-9999,2022-04-10 09:00:00,2022-04-10 09:00:00
+Chris Evans,chris@example.com,$2b$10$eqRzfuFQ4WIzbtS31FWwkOkXHG.SjOAsb3cCVYFQqmMMpwsROIR3i,222-222-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
+Jennifer Lawrence,jlawrence@example.com,$2b$10$1WVXia.oJ7DNfZaLfMNPouUBkvGrwafQvn5PIh2K0NR2u5NHI91uS,422-224-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
 \.
 
 -- -- -- Data for book_transactions table

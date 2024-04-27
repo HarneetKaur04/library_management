@@ -121,12 +121,25 @@ const User = () => {
                 onChange={handleInputChange}
                 className="input-field"
               />
+              <input
+                type="text"
+                name="contact"
+                value={editedUser.contact_details}
+                onChange={handleInputChange}
+                className="input-field"
+              />
               <button onClick={handleSaveEdit} className="action-button edit-button">Save</button>
             </>
           ) : (
             // Render user details if user is not being edited
             <>
-              <p><strong>USERNAME:</strong> {user.username}, <strong>EMAIL:</strong> {user.email}</p>
+              <p>
+                <strong>USERNAME:</strong> {user.username},
+                <br />
+                <strong>EMAIL:</strong> {user.email},
+                <br />
+                <strong>CONTACT:</strong> {user.contact_details}
+              </p>
               <button onClick={() => handleEditUser(user.id)} className="action-button edit-button">Edit</button>
               <button onClick={() => handleDeleteUser(user.id)} className="action-button delete-button">Delete</button>
             </>

@@ -1,5 +1,6 @@
 .page-container {
     position: relative;
+    margin-bottom: 100px;
   }
   
   .background-image {
@@ -8,7 +9,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -1 !important;
     background-size: cover;
     background-position: center;
     opacity: 0.5;
@@ -17,56 +18,78 @@
   
   .content-container {
     display: flex;
-    max-width: 1200px;
+    flex-wrap: wrap;
+    width: 80%;
     margin: 0 auto;
-    padding: 20px; 
+    padding: 20px;
+    z-index: 1 !important;
+  }
+  
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .filter-by h2 {
+    font-size: 15px;
+  }
+  
+  .title-alphabets {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
     flex-wrap: wrap;
   }
   
-  .alphabet-filter,
-  .search-filter {
-    flex: 0 0 100%;
-    margin-bottom: 20px;
-  }
-
-  .alphabet-filter button {
-    margin-right: 2px;
-    display: inline;
-    background-color: white;
-    color:black;
+  .title-alphabets button {
+    margin-right: 5px;
+    background-color: #f0f0f0;
+    color: #333;
     font-weight: bold;
-    width:50px;
+    width: 50px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   }
-
-  .alphabet-filter button:hover{
+  
+  .title-alphabets button:hover {
     background-color: #79670e;
     color: white;
   }
   
-  input[type="text" i] {
-    padding-block: 1px;
-    padding-inline: 2px;
-    width: 250px;
+  .filter-by {
+    margin-right: 20px;
+  }
+  
+  .search-filter {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+  
+  .search-filter input {
+    width: 300px;
   }
   
   .all-books {
     flex: 1;
+    width: 100%;
   }
   
   .book-details {
     flex: 1;
-    margin-left: 10%;
-    margin-top: 0.5%;
+    margin-left: 10px;
+    margin-top: 20px;
   }
   
   h2 {
     font-size: 20px;
     margin-bottom: 10px;
     margin-right: 10px;
-  }
-  
-  .alphabet-filter h2 {
-    margin-bottom: 20px;
   }
   
   ul {
@@ -89,15 +112,18 @@
   }
   
   li:hover {
-    background-color: #f0f0f0;
+    background-color: #e2dfd0;
   }
   
   .book-details-container {
-    background-color: #f9f9f9;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    background-color: #f9f7f2;
+    box-shadow: 0px 0px 20px rgba(211, 161, 161, 0.1);
     padding: 20px;
     border-radius: 5px;
-    margin-top: 10%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
   .book-details-container h2 {
@@ -116,14 +142,16 @@
     margin-right: 5px;
   }
   
-  /* edit and delete button */
+  /* edit, delete, and favorite buttons */
   .edit-btn,
-  .delete-btn {
+  .delete-btn,
+  .favorite-btn {
     padding: 8px 16px;
     font-size: 14px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-right: 5px;
     transition: background-color 0.3s ease;
   }
   
@@ -137,9 +165,15 @@
     color: #fff;
   }
   
+  .favorite-btn {
+    background-color: #6fae62;
+    color: #fff;
+  }
+  
   /* Hover effects */
   .edit-btn:hover,
-  .delete-btn:hover {
+  .delete-btn:hover,
+  .favorite-btn:hover {
     opacity: 0.5;
   }
   

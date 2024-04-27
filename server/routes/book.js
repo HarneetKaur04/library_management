@@ -87,10 +87,11 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     try {
       const bookId = req.params.id;
-      const query = "DELETE FROM books WHERE id = $1 RETURNING *";
-      const values = [bookId];
-      const deletedBook = await db.query(query, values);
-      if (deletedBook.rows.length === 0) {
+      // Delete related records from book_transactions table to avoid foreign key ref error.
+      await db.query("DELETE FROM book_transactions WHERE book_id = $1", [bookId]);
+      // Then delete the book
+      const deletedBook = await db.query("DELETE FROM books WHERE id = $1 RETURNING *", [bookId]);
+      if (deletedBook.length === 0) {
         res.status(404).json({ message: "Book not found" });
       } else {
         res.status(200).json({ message: "Book deleted successfully" });

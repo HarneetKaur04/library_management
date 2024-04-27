@@ -34,3 +34,19 @@ CREATE TABLE book_transactions (
     return_date TIMESTAMP,
     CONSTRAINT unique_transaction UNIQUE (book_id, user_id, transaction_type)
 );
+
+-- Create the table for checked out books
+CREATE TABLE checked_out_books (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    book_id INTEGER REFERENCES books(id),
+    CONSTRAINT unique_checked_out UNIQUE (user_id, book_id)
+);
+
+-- Create the table for favorite books
+CREATE TABLE favorite_books (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    book_id INTEGER REFERENCES books(id),
+    CONSTRAINT unique_favorite UNIQUE (user_id, book_id)
+);

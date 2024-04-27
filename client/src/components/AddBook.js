@@ -9,8 +9,7 @@ function AddBook() {
     publication_date: '',
     genre: ''
   });
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [message, setMessage] = useState('') 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +21,7 @@ function AddBook() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData)
     try {
       const response = await fetch('http://localhost:5000/api/books/add', {
         method: 'POST',
@@ -30,42 +30,37 @@ function AddBook() {
         },
         body: JSON.stringify(formData)
       });
-      const data = await response.json();
       if (!response.ok) {
-        throw new Error(data.error || 'Network response was not ok');
+        throw new Error('Network response was not ok');
       }
-      setSuccessMessage('Book added successfully');
-      setErrorMessage('');
+      setMessage('Book added successfully!')
     } catch (error) {
       console.error('Error adding book:', error.message);
-      setErrorMessage(error.message || 'Error adding book');
-      setSuccessMessage('');
     }
   };
 
   return (
     <div className="add-book">
       <h2>Add New Book</h2>
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
-      {successMessage && <div className="success-message">{successMessage}</div>}
       <form onSubmit={handleSubmit}>
-        <label>Title:</label>
+        <label><strong>Title:</strong></label>
         <input type="text" name="title" value={formData.title} onChange={handleChange} required />
         
-        <label>Author:</label>
+        <label><strong>Author:</strong></label>
         <input type="text" name="author" value={formData.author} onChange={handleChange} required />
         
-        <label>ISBN:</label>
+        <label><strong>ISBN:</strong></label>
         <input type="text" name="isbn" value={formData.isbn} onChange={handleChange} required />
         
-        <label>Publication Date:</label>
+        <label><strong>Publication Date:</strong></label>
         <input type="date" name="publication_date" value={formData.publication_date} onChange={handleChange} required />
         
-        <label>Genre:</label>
+        <label><strong>Genre:</strong></label>
         <input type="text" name="genre" value={formData.genre} onChange={handleChange} required />
         
         <button type="submit">Add Book</button>
       </form>
+      <p className='add-book-message'>{message}</p>
     </div>
   );
 }

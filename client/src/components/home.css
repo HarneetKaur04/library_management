@@ -5,50 +5,19 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-/* Style the library image */
-.library-image {
-  position: relative;
-  width: 100%;
-}
-
-/* Style the library image */
-.library-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Style the login card */
-.login-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 400px;
+  background-image: url('https://img.freepik.com/free-photo/abundant-collection-antique-books-wooden-shelves-generated-by-ai_188544-29660.jpg?t=st=1713833541~exp=1713837141~hmac=5a2b2523839e4a83f92672ff22a5807351c0e3f3c178c5f2196724a1cd2fd665&w=2000');
+  background-size: cover;
+  background-position: center;
+  margin-bottom:100px;
 }
 
 /* Style the dashboard card */
 .dashboard-card {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+  position: relative;
   z-index: 1;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
-}
-
-/* Common styles for cards */
-.login-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
   padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Header style */
@@ -61,12 +30,16 @@ p {
   margin-bottom: 0;
 }
 
+.container {
+  width:100%;
+  height:100vh;
+}
+
 /* Login button container */
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 /* Login button */
@@ -88,7 +61,7 @@ p {
 
 /* Logout button */
 .btn.btn-danger.btn-block {
-  color: blue;
+  color: #007bff;
   background-color: white;
   width: auto;
   height: 20%;

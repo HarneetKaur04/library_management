@@ -146,7 +146,10 @@ function CheckInOut() {
         <div className="checkinout-container">
             <h1>Library Books Check In/ Check Out System</h1>
             <div className="checkinout-card">
-                <p>Time to bring your literary companions back home! Check in your books and let them rest until your next journey together</p>
+                <div className='container-top-img'>
+                    <img src="https://www.vyond.com/wp-content/uploads/2021/01/Book-Club-8-480p-4fa264dd-e035-40cc-8907-e78d890c8c4e.gif" alt="Book Club" className="checkinout-image" />
+                    <h3>Time to bring your literary companions back home! Check in your books and let them rest until your next journey together</h3>
+                </div>
                 <h2>Check In Books</h2>
                 <select value={selectedCheckInBookId} onChange={(e) => setSelectedCheckInBookId(e.target.value)} className="checkinout-select">
                     <option value="">Select Book</option>
@@ -160,8 +163,11 @@ function CheckInOut() {
                 <p className='checkinout-message'>{checkInMessage}</p>
             </div>
             <div className="checkinout-card">
-                <p>Ready to dive into a new adventure? Book your next literary escape now!</p>
                 <h2>Check Out Books</h2>
+                <div className='container-top-img'>
+                    <img src="https://cdn.dribbble.com/users/453514/screenshots/5588640/childrens-room-gif800.gif" alt="Book Club" className="checkinout-image" />
+                    <h3>Ready to dive into a new adventure? Take your next literary escape now!</h3>
+                </div>
                 <select value={selectedCheckOutBookId} onChange={(e) => setSelectedCheckOutBookId(e.target.value)} className="checkinout-select">
                     <option value="">Select Book</option>
                     {availableBooks.map(book => (

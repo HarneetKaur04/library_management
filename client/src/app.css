@@ -1,9 +1,16 @@
+/* app.css */
+
 .App {
-    width: 95%;
-    margin-right: auto;
-    margin-left: auto;
-    font-family: 'Red Hat Text', sans-serif;
-  }
+  position: relative; /* Ensure relative positioning for child elements */
+}
 
-
-  
+.background-image {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the background image behind other content */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  transition: opacity 0.3s ease-in-out; /* Add transition effect */
+}

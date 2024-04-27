@@ -4,6 +4,7 @@ import { useAdminStatus } from '../AdminStatusContext';
 import { useUser } from '../UserContext';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import Register from './Register';
 
 const Login = () => {
   const { updateAdminStatus } = useAdminStatus();
@@ -77,7 +78,8 @@ const Login = () => {
         </div>
         {error && <p>{error}</p>}
         <button type="submit">Login</button>
-        <p className='register-link'>Not a member? <Link to="/register">Register</Link></p>
+        <p>Not a member? <a href='/register'>Register</a></p>
+        
       </form>
     </div>
   );

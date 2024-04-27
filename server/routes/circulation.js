@@ -11,7 +11,6 @@ router.use(cors());
 // Endpoint to check out a book
 router.post('/check-out', async (req, res) => {
     const { bookId, userId } = req.body;
-    console.log(req.body)
 
     try {
       // Check if the book is available for check-out
@@ -19,7 +18,17 @@ router.post('/check-out', async (req, res) => {
       if (book.length === 0) {
         return res.status(400).json({ error: 'The book is not available for immediate check-out. Please check the reserve tab to see if its available for next reservation' });
       }
-  
+
+      // Check if the combination of user_id and book_id already exists in checked_out_books
+      const existingCheckout = await db.query('SELECT * FROM checked_out_books WHERE book_id = $1 AND user_id = $2', [bookId, userId]);
+      // If the combination already exists, do not insert the entry again
+      if (existingCheckout.length > 0) {
+      console.log('Book already checked out by the user');
+      } else {
+      // Insert the entry into checked_out_books
+      await db.query('INSERT INTO checked_out_books (book_id, user_id) VALUES ($1, $2)', [bookId, userId]);
+      }
+
       // Calculate return date (4 days from current timestamp)
       const returnDate = new Date();
       returnDate.setDate(returnDate.getDate() + 4);
@@ -54,7 +63,7 @@ router.post('/check-in', async (req, res) => {
     console.log(reservedUsers, "when user does check-in")
 
     // Perform check-out process for users who have reserved those books
-    if (reservedUsers) {
+    if (reservedUsers.length> 0) {
         for (const reservedUser of reservedUsers) {
             const { book_id: reservedBookId, user_id: reservedUserId } = reservedUser;
                
@@ -66,9 +75,18 @@ router.post('/check-in', async (req, res) => {
             await db.query('DELETE FROM book_transactions WHERE book_id = $1 AND user_id = $2 AND transaction_type = $3', [reservedBookId, reservedUserId, 'reserve']);
             // Insert transaction record for check-out
             await db.query('INSERT INTO book_transactions (book_id, user_id, transaction_type, transaction_date, checkout_date, return_date) VALUES ($1, $2, $3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, $4)', [reservedBookId, reservedUserId, 'check_out', returnDate]);
+            // Check if the combination of user_id and book_id already exists in checked_out_books
+            const existingCheckout = await db.query('SELECT * FROM checked_out_books WHERE book_id = $1 AND user_id = $2', [reservedBookId, reservedUserId]);
+            // If the combination already exists, do not insert the entry again
+            if (existingCheckout.length > 0) {
+            console.log('Book already checked out by the user');
+            } else {
+            // Insert the entry into checked_out_books
+            await db.query('INSERT INTO checked_out_books (book_id, user_id) VALUES ($1, $2)', [reservedBookId, reservedUserId]);
+            }
             // Update book availability status to checked out
             await db.query('UPDATE books SET availability_status = $1 WHERE id = $2', ['checked_out', reservedBookId]);
-    } 
+        } 
     } else {
             // Update book availability status to available
             await db.query('UPDATE books SET availability_status = $1 WHERE id = $2', ['available', bookId]);
@@ -154,6 +172,16 @@ router.get("/update_books_availability", async (req, res) => {
           for (const reservedUser of reservedUsers) {
             const { book_id: reservedBookId, user_id: reservedUserId } = reservedUser;
             console.log(reservedUser, "reservedUser")
+
+            // Check if the combination of user_id and book_id already exists in checked_out_books
+            const existingCheckout = await db.query('SELECT * FROM checked_out_books WHERE book_id = $1 AND user_id = $2', [reservedBookId, reservedUserId]);
+            // If the combination already exists, do not insert the entry again
+            if (existingCheckout.length > 0) {
+            console.log('Book already checked out by the user');
+            } else {
+            // Insert the entry into checked_out_books
+            await db.query('INSERT INTO checked_out_books (book_id, user_id) VALUES ($1, $2)', [reservedBookId, reservedUserId]);
+            }
                
             // Calculate return date (4 days from current timestamp)
             const returnDate = new Date();
@@ -215,6 +243,24 @@ router.get('/fetchBooksInfo', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+// Route to fetch all read books of users
+router.get('/read-books/:userId', async (req, res) => {
+    const userId = req.params.userId;
+  
+    try {
+      // Query the database to get all favorite books of the user
+      const readBooks = await db.query(
+        'SELECT books.* FROM checked_out_books JOIN books ON checked_out_books.book_id = books.id WHERE checked_out_books.user_id = $1',
+        [userId]
+      );
+  
+      res.json(readBooks); // Send the readBooks books as JSON response
+    } catch (error) {
+      console.error('Error fetching favorite books:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
 
 
 

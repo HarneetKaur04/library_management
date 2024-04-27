@@ -58,7 +58,10 @@ const AdminDashboard = () => {
   return (
     <div className='admin-dash'>
       <h2>Welcome Admin</h2>
-      <p>Here's your Admin Dashboard.</p>
+      <div className='container-top-img-admin'>
+        <img src="https://i.pinimg.com/originals/ab/9e/5a/ab9e5ac5627187fa9e9d4606db7dd29c.gif" alt="Book Club" className="checkinout-image" />
+        <h3>Welcome to the Library Admin Dashboard! Easily manage user accounts and library resources with intuitive controls. From user management to book acquisition and circulation, streamline your administrative tasks effortlessly.</h3>
+      </div>
       <div className="button-container">
         <button className="admin-button" onClick={() => navigate('/view-users')}>View/Edit/Delete all registered users</button>
         <button className="admin-button" onClick={() => navigate('/register')}>Add a new user</button>

@@ -98,6 +98,8 @@ router.delete('/:id', async (req, res) => {
   try {
     const userId = req.params.id;
 
+    await db.query("DELETE FROM book_transactions WHERE user_id = $1", [userId]);
+
     // Check if the user exists
     const user = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
     if (user.length === 0) {
@@ -136,5 +138,53 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Add Book to Read Later List
+
+// route to get all favorited books
+router.get('/:userId/favorite-books', async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    // Fetch all favorite books for the user from the database
+    const favoriteBooks = await db.query('SELECT * FROM favorite_books WHERE user_id = $1', [userId]);
+    
+    res.status(200).json({ favoriteBooks });
+  } catch (error) {
+    console.error('Error fetching favorite books:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+//route to add new book as favorite
+router.post('/:userId/favorite-books', async (req, res) => {
+  const { userId } = req.params;
+  const { bookId } = req.body;
+
+  try {
+    // Insert the book into the user's favorite_books table
+    await db.query('INSERT INTO favorite_books (user_id, book_id) VALUES ($1, $2)', [userId, bookId]);
+    
+    res.status(200).json({ message: 'Book added to Read Later list successfully' });
+  } catch (error) {
+    console.error('Error adding book to Read Later list:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Remove Book from favorite list
+router.delete('/:userId/favorite-books/:bookId', async (req, res) => {
+  const { userId, bookId } = req.params;
+
+  try {
+    // Delete the book from the user's favorite_books table
+    await db.query('DELETE FROM favorite_books WHERE user_id = $1 AND book_id = $2', [userId, bookId]);
+    
+    res.status(200).json({ message: 'Book removed from Read Later list successfully' });
+  } catch (error) {
+    console.error('Error removing book from Read Later list:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 module.exports = router;
+

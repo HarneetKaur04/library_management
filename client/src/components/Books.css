@@ -29,7 +29,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
     margin-bottom: 20px;
   }
   
@@ -168,6 +167,7 @@
   .favorite-btn {
     background-color: #6fae62;
     color: #fff;
+    width: 90px;
   }
   
   /* Hover effects */

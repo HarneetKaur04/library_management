@@ -3,9 +3,11 @@ import './Books.css'; // Import CSS file for styling
 import BookDetails from './BookDetails'; // Import BookDetails component
 import Modal from './Modal'; // Import Modal component
 import { useUser } from '../UserContext';
+import { useAdminStatus } from '../AdminStatusContext';
 
 function Books() {
   const { user } = useUser(); // Use the useUser hook to get user data
+  const { isAdmin } = useAdminStatus();
   const [books, setBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
   const [selectedAlphabet, setSelectedAlphabet] = useState(null);
@@ -288,9 +290,9 @@ function Books() {
                     <button className="delete-btn" onClick={() => handleDeleteBook(book.id)}>Delete</button>
                   </>
                 ) : null}
-                {user && (
+                {user && !isAdmin && (
                   <button className="favorite-btn" onClick={(e) => { e.stopPropagation(); handleFavoriteToggle(book.id, book.favorited); }}>
-                    {book.favorited ? 'Remove from Favorites' : 'Add to Favorites'}
+                    {book.favorited ? 'Unfavorite' : 'Favorite'}
                   </button>
                 )}
               </li>

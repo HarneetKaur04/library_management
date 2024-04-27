@@ -1,77 +1,104 @@
 .user-dash {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
+    margin: 20px;
+    background-color: white; /* Set background color to white */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
   }
   
   .user-dash h2 {
-    text-align: center;
-    margin-bottom: 20px;
+    margin-top: 0; /* Remove default margin for h2 */
+    text-align: center; /* Center align the text */
+    font-size: 24px; /* Increase font size for better readability */
+    color: #333; /* Set text color to dark gray */
   }
   
-  .section {
-    margin-bottom: 30px;
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
   }
   
-  .section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+  .grid-item {
+    background-color: #f9f9f9; /* Set background color for grid items */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
   }
   
-  .section ul {
-    list-style-type: none;
+  .user-dash-section {
+    padding: 20px;
+  }
+  
+  .user-dash-section h3 {
+    margin-top: 0;
+    font-size: 18px; /* Decrease font size for section headings */
+    color: #333; /* Set text color to dark gray */
+  }
+  
+  .user-dash-section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .user-dash-section ul ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+
+  .user-dash-section li {
+    cursor: auto !important;
+  }
+  
+  .user-dash-section button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     padding: 0;
+    font-size: 16px; /* Set font size for buttons */
+    color: #007bff; /* Set text color to blue */
   }
   
-  .section ul li {
-    margin-bottom: 5px;
+  .user-dash-section button:hover {
+    text-decoration: underline;
+  }
+
+  .unfavorite-button {
+    background-color: #79670e !important;
+    color:white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    padding: 10px 20px !important;
+    text-decoration: none !important;
   }
   
-  .button-container {
+  .user-dash-button-container {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .dash-heading-btn {
+    background-color: #79670e !important;
+    color:white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    padding: 10px 20px !important;
+    text-decoration: none !important;
   }
   
   .user-button {
     padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #007bff;
+    background-color: #79670e;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
   }
   
   .user-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .no-records {
-    text-align: center;
-    font-style: italic;
-    color: #666;
-  }
-  
-  .scrollable-list {
-    max-height: 300px; /* Adjust as needed */
-    overflow-y: auto;
-  }
-  
-  .scrollable-list ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .scrollable-list ul li {
-    cursor: pointer;
-    padding: 5px 0;
-  }
-  
-  .scrollable-list ul li:hover {
-    background-color: #f0f0f0;
+    background-color: #615103;
   }
   

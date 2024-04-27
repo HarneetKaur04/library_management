@@ -98,13 +98,16 @@ router.delete('/:id', async (req, res) => {
   try {
     const userId = req.params.id;
 
-    await db.query("DELETE FROM book_transactions WHERE user_id = $1", [userId]);
-
     // Check if the user exists
     const user = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
     if (user.length === 0) {
       return res.status(404).json({ error: 'User not found' });
     }
+
+    // delete all foreign key referenced tables
+    await db.query("DELETE FROM book_transactions WHERE user_id = $1", [userId]);
+    await db.query('DELETE FROM favorite_books WHERE user_id = $1', [userId]);
+    await db.query('DELETE FROM checked_out_books WHERE user_id = $1', [userId]);
 
     // Delete the user from the database
     await db.query('DELETE FROM users WHERE id = $1', [userId]);
@@ -149,6 +152,7 @@ router.get('/:userId/favorite-books', async (req, res) => {
     const favoriteBooks = await db.query('SELECT * FROM favorite_books WHERE user_id = $1', [userId]);
     
     res.status(200).json({ favoriteBooks });
+    console.log(favoriteBooks)
   } catch (error) {
     console.error('Error fetching favorite books:', error);
     res.status(500).json({ error: 'Internal server error' });

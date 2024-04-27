@@ -25,14 +25,6 @@ const AdminDashboard = () => {
       .catch(error => console.error('Error fetching total books:', error));
   }, []);
 
-  const handleUsersButtonClick = () => {
-    navigate('/view-users');
-  };
-
-  const handleBooksButtonClick = () => {
-    navigate('/books');
-  };
-
   const data = {
     labels: ['Users', 'Books'],
     datasets: [
@@ -56,7 +48,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className='admin-dash'>
+    <div className='admin-dash' data-testid="admin-dashboard-component">
       <h2>Welcome Admin</h2>
       <div className='container-top-img-admin'>
         <img src="https://i.pinimg.com/originals/ab/9e/5a/ab9e5ac5627187fa9e9d4606db7dd29c.gif" alt="Book Club" className="checkinout-image" />

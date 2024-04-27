@@ -87,8 +87,12 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
     try {
       const bookId = req.params.id;
-      // Delete related records from book_transactions table to avoid foreign key ref error.
-      await db.query("DELETE FROM book_transactions WHERE book_id = $1", [bookId]);
+
+      // Delete all foreign key referenced tables
+        await db.query("DELETE FROM book_transactions WHERE book_id = $1", [bookId]);
+        await db.query('DELETE FROM favorite_books WHERE book_id = $1', [bookId]);
+        await db.query('DELETE FROM checked_out_books WHERE book_id = $1', [bookId]);
+
       // Then delete the book
       const deletedBook = await db.query("DELETE FROM books WHERE id = $1 RETURNING *", [bookId]);
       if (deletedBook.length === 0) {

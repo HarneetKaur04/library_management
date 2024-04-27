@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../UserContext';
+import './UserDashboard.css'; // Import CSS file for styling
 
 const UserDashboard = () => {
   const navigate = useNavigate();
-  const { user } = useUser(); // Access user data using useUser hook
+  const { user } = useUser();
+  const [allBooks, setAllBooks] = useState([]);
   const [availableBooks, setAvailableBooks] = useState([]);
   const [checkedOutBooks, setCheckedOutBooks] = useState([]);
   const [readBooks, setReadBooks] = useState([]);
   const [favoriteBooks, setFavoriteBooks] = useState([]);
 
   useEffect(() => {
+    fetchAllBooks();
     fetchBooksInfo();
     fetchReadBooks();
+    fetchFavoriteBooks();
   }, []);
 
   const fetchBooksInfo = async () => {
@@ -29,6 +33,46 @@ const UserDashboard = () => {
     }
   };
 
+  const fetchAllBooks = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/books');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setAllBooks(data);
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    }
+  };
+
+  const fetchFavoriteBooks = async () => {
+    try {
+      // Wait for allBooks to be populated
+      await fetchAllBooks(); 
+      const response = await fetch(`http://localhost:5000/api/users/${user.id}/favorite-books`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      // Filter favorite books directly from the fetched data
+      const favoriteBooksWithInfo = data.favoriteBooks.map(async favorite => {
+        const response = await fetch(`http://localhost:5000/api/books/${favorite.book_id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch book information');
+        }
+        const bookInfo = await response.json();
+        return { ...bookInfo, favoriteId: favorite.id }; // Add favoriteId for reference
+      });
+      Promise.all(favoriteBooksWithInfo).then(favorites => {
+        setFavoriteBooks(favorites);
+      });
+    } catch (error) {
+      console.error('Error fetching favorite books:', error);
+    }
+  };
+  
+  
   const fetchReadBooks = async () => {
     try {
       const response = await fetch(`http://localhost:5000/api/circulation/read-books/${user.id}`);
@@ -42,21 +86,84 @@ const UserDashboard = () => {
     }
   };
 
-  const userCheckedOutBooks = checkedOutBooks.filter(book => book.user_id === user.id);
+  const handleFavoriteToggle = async (bookId, favorited) => {
+    try {
+      if (favorited) {
+        const response = await fetch(`http://localhost:5000/api/users/${user.id}/favorite-books/${bookId}`, {
+          method: 'DELETE'
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+      }
+      fetchFavoriteBooks();
+    } catch (error) {
+      console.error('Error toggling favorite:', error);
+    }
+  };
 
   return (
-    <div className='user-dash'>
-      <h2>Welcome User</h2>
-      <div className="user-dash-section">
-        <h3>Statistics</h3>
-        <ul>
-          <li>Books available to check out: {availableBooks.length}</li>
-          <li>Active checked out books: {userCheckedOutBooks.length}</li>
-          <li>Books read so far: {readBooks.length}</li>
-          <li>Favorite books count: {favoriteBooks.length}</li>
-        </ul>
+    <div className='user-dash' data-testid="user-dashboard-component">
+      <br/>
+      <h2>Welcome {user.username} to your Personalized Dashboard!</h2>
+      <br/>
+      <div className="grid-container">
+        <div className="grid-item">
+          <div className="user-dash-section">
+            <h3>
+              <button className="dash-heading-btn" onClick={() => navigate('/check-in-out')}>
+                Books available to check out ({availableBooks.length})
+              </button>
+            </h3>
+            <ul>
+              {availableBooks.map(book => (
+                <li key={book.id}>{book.title}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="grid-item">
+          <div className="user-dash-section">
+            <h3>
+              <button className="dash-heading-btn" onClick={() => navigate('/check-in-out')}>
+                Active checked out books ({checkedOutBooks.length})
+              </button>
+            </h3>
+            <ul>
+              {checkedOutBooks.map(checkedOutBook => {
+                const book = allBooks.find(book => book.id === checkedOutBook.book_id);
+                return (
+                  <li key={checkedOutBook.id}>{book ? book.title : "Unknown"}</li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="grid-item">
+          <div className="user-dash-section">
+            <h3>Books read so far ({readBooks.length})</h3>
+            <ul>
+              {readBooks.map(book => (
+                <li key={book.id}>{book.title}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="grid-item">
+          <div className="user-dash-section">
+            <h3>Favorite books count: {favoriteBooks.length}</h3>
+            <ul>
+              {favoriteBooks.map(book => (
+                <li key={book.favoriteId}>
+                  {book.title}
+                  <button className="unfavorite-button" onClick={() => handleFavoriteToggle(book.favoriteId, true)}>Unfavorite</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
-
+  
       <div className="user-dash-button-container">
         <button className="user-button" onClick={() => navigate('/books')}>View Catalogue</button>
         <button className="user-button" onClick={() => navigate('/profile')}>View Profile</button>
@@ -65,6 +172,6 @@ const UserDashboard = () => {
       </div>
     </div>
   );
-};
+};  
 
 export default UserDashboard;

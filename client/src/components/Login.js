@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAdminStatus } from '../AdminStatusContext';
 import { useUser } from '../UserContext';
 import './Login.css';
-import { Link } from 'react-router-dom';
-import Register from './Register';
 
 const Login = () => {
   const { updateAdminStatus } = useAdminStatus();
@@ -55,7 +53,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div data-testid="login-component">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         <div>

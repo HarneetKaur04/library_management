@@ -89,22 +89,12 @@ The Alchemist,Paulo Coelho,9780061122415,Fiction,1988-01-01,available,2022-04-10
 -- -- Data for users table
 COPY public.users (username, email, password, contact_details, created_at, updated_at) FROM stdin with delimiter ',';
 admin,admin@test.com,$2b$10$DDXQlfDYICViIH9p//qw5ujqt3Y6kEGWstNFRMpFnKfGjGGzsca2u,222-222-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
-Hugh Jackman,hjackman@example.com,$2b$10$HZWv2TaivjSHAwZRZ97XXO34gO4PfuCmum5.JFETexZIP0rI1rTaa,999-999-9999,2022-04-10 09:00:00,2022-04-10 09:00:00
-Chris Evans,chris@example.com,$2b$10$eqRzfuFQ4WIzbtS31FWwkOkXHG.SjOAsb3cCVYFQqmMMpwsROIR3i,222-222-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
-Jennifer Lawrence,jlawrence@example.com,$2b$10$1WVXia.oJ7DNfZaLfMNPouUBkvGrwafQvn5PIh2K0NR2u5NHI91uS,422-224-2222,2022-04-10 09:00:00,2022-04-10 09:00:00
+Joey Tribbiani,joey@tribbiani.com,$2b$10$fENHhHndVA.tdY3PTDQpJ.7LngcrVT5VS1sg6pKr0eySh.gCILVQi,43434343434,2024-04-27 19:31:06.801,2024-04-27 19:28:04.055
+Homer Simpson,homer@simpson.com,$2b$10$c42rgKSN.0lV54mvBOkPU.ECzztSCy2kJ/5n5uTVqtFHfcmcs4OvW,11212121212,2024-04-27 19:31:06.801,2024-04-27 19:31:06.801
+Barney Stinson,barney@stinson.com,$2b$10$.I7XGEI3iOfYpopE3KOOLO470wK1YLf8/YxSHzwKhBokU8uAKFxbO,999999999,2024-04-27 19:37:27.356,2024-04-27 19:37:27.356
+Patrick Star,patrick@star.com,$2b$10$pLAJ4IDchwZAZXSjY2NjJ.y4iGtQr0RnKa4pRlN/S/nlhYAhswray,3748349283,2024-04-28 19:39:12.676,2024-04-28 19:39:12.676
+Chandler Bing,chandler@bing.com,$2b$10$Dod3yge69Di/J8kZOsutIOl8Dp1Pwb5HXeh5s2XMZ5o0DQp2E2vHe,924824249,2024-04-29 19:39:57.637,2024-04-29 19:39:57.637
 \.
-
--- -- -- Data for book_transactions table
--- COPY public.book_transactions (book_id, user_id, transaction_type, transaction_date, reserve_date, return_date, checkout_date) FROM stdin with delimiter ',';
--- 1,1,check_out,2022-04-10,,2024-04-30,2024-04-24
--- 2,2,check_out,2022-04-10,,2024-04-24,2024-04-24
--- 3,3,reserve,2022-04-10,2024-04-24,,2022-04-10
--- 4,1,check_out,2022-04-10,,2024-04-24,2024-04-24
--- 5,2,check_out,2022-04-10,,2024-04-24,2024-04-24
--- 6,3,reserve,2022-04-10,2024-04-24,,2022-04-10
--- 7,1,reserve,2022-04-10,2024-04-24,,2022-04-10
--- \.
-
 --
 -- PostgreSQL database dump complete
 --```

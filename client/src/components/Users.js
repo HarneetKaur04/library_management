@@ -123,7 +123,7 @@ const User = () => {
               />
               <input
                 type="text"
-                name="contact"
+                name="contact_details"
                 value={editedUser.contact_details}
                 onChange={handleInputChange}
                 className="input-field"

@@ -11,12 +11,14 @@ const UserDashboard = () => {
   const [checkedOutBooks, setCheckedOutBooks] = useState([]);
   const [readBooks, setReadBooks] = useState([]);
   const [favoriteBooks, setFavoriteBooks] = useState([]);
+  const [reservedBooks, setReservedBooks] = useState([]);
 
   useEffect(() => {
     fetchAllBooks();
     fetchBooksInfo();
     fetchReadBooks();
     fetchFavoriteBooks();
+    fetchReservedBooks();
   }, []);
 
   const fetchBooksInfo = async () => {
@@ -27,7 +29,8 @@ const UserDashboard = () => {
       }
       const data = await response.json();
       setAvailableBooks(data.allAvailableBooks);
-      setCheckedOutBooks(data.checkedOutBooksByAllUsers);
+      const userCheckedOutBooks = data.checkedOutBooksByAllUsers.filter(book => book.user_id === user.id);
+      setCheckedOutBooks(userCheckedOutBooks);
     } catch (error) {
       console.error('Error fetching books information:', error);
     }
@@ -86,6 +89,20 @@ const UserDashboard = () => {
     }
   };
 
+  const fetchReservedBooks = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/circulation/reserved-books');
+      if (!response.ok) {
+        throw new Error('Failed to fetch reserved books');
+      }
+      const data = await response.json();
+      const userReservedBooks = data.reservedBooks.filter(book => book.user_id === user.id);
+      setReservedBooks(userReservedBooks);
+    } catch (error) {
+        console.error('Error fetching reserved books:', error);
+    }
+  };
+
   const handleFavoriteToggle = async (bookId, favorited) => {
     try {
       if (favorited) {
@@ -105,14 +122,14 @@ const UserDashboard = () => {
   return (
     <div className='user-dash' data-testid="user-dashboard-component">
       <br/>
-      <h2>Welcome {user.username} to your Personalized Dashboard!</h2>
+      <h2>Welcome <span style={{ color: '#79670e' }}>{user.username}</span> to your Personalized Dashboard!</h2>
       <br/>
       <div className="grid-container">
         <div className="grid-item">
           <div className="user-dash-section">
             <h3>
               <button className="dash-heading-btn" onClick={() => navigate('/check-in-out')}>
-                Books available to check out ({availableBooks.length})
+                Books available to check-out ({availableBooks.length})
               </button>
             </h3>
             <ul>
@@ -126,7 +143,7 @@ const UserDashboard = () => {
           <div className="user-dash-section">
             <h3>
               <button className="dash-heading-btn" onClick={() => navigate('/check-in-out')}>
-                Active checked out books ({checkedOutBooks.length})
+                Books to check-in ({checkedOutBooks.length})
               </button>
             </h3>
             <ul>
@@ -139,6 +156,16 @@ const UserDashboard = () => {
             </ul>
           </div>
         </div>
+        <div className="grid-item">
+        <div className="user-dash-section">
+          <h3>Reserved books count: {reservedBooks.length}</h3>
+          <ul>
+            {reservedBooks.map(book => (
+              <li key={book.id}>{book.title}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
         <div className="grid-item">
           <div className="user-dash-section">
             <h3>Books read so far ({readBooks.length})</h3>

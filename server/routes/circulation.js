@@ -121,6 +121,24 @@ router.get('/checked-out-books', async (req, res) => {
     }
 });
 
+// Endpoint to get all books with reserved status
+router.get('/reserved-books', async (req, res) => {
+    try {
+        // Fetch all books with availability_status as checked_out and not reserved
+        const reservedBooks = await db.query(`
+            SELECT books.*, book_transactions.user_id
+            FROM books
+            INNER JOIN book_transactions ON books.id = book_transactions.book_id
+            WHERE books.availability_status = 'checked_out'
+            AND book_transactions.transaction_type = 'reserve';
+        `);
+        res.status(200).json({ reservedBooks });
+    } catch (error) {
+        console.error('Error fetching reserved books:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 // Endpoint to reserve a book
 router.post('/reserve', async (req, res) => {
   const { bookId, userId } = req.body;

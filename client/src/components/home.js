@@ -4,7 +4,7 @@ import UserDashboard from './UserDashboard';
 import AdminDashboard from './AdminDashboard';
 import { useAdminStatus } from '../AdminStatusContext';
 import { useUser } from '../UserContext';
-import './home.css';
+import './Home.css';
 
 const Home = () => {
   const { isAdmin } = useAdminStatus(); // Access isAdmin state using useAdminStatus hook

@@ -28,5 +28,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.24.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.5",
+    "babel-jest": "^27.5.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }

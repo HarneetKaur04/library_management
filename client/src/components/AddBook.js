@@ -41,26 +41,26 @@ function AddBook() {
 
   return (
     <div className="add-book">
-      <h2>Add New Book</h2>
-      <form onSubmit={handleSubmit}>
-        <label><strong>Title:</strong></label>
-        <input type="text" name="title" value={formData.title} onChange={handleChange} required />
-        
-        <label><strong>Author:</strong></label>
-        <input type="text" name="author" value={formData.author} onChange={handleChange} required />
-        
-        <label><strong>ISBN:</strong></label>
-        <input type="text" name="isbn" value={formData.isbn} onChange={handleChange} required />
-        
-        <label><strong>Publication Date:</strong></label>
-        <input type="date" name="publication_date" value={formData.publication_date} onChange={handleChange} required />
-        
-        <label><strong>Genre:</strong></label>
-        <input type="text" name="genre" value={formData.genre} onChange={handleChange} required />
-        
-        <button type="submit">Add Book</button>
-      </form>
-      <p className='add-book-message'>{message}</p>
+        <h2>Add New Book</h2>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="title"><strong>Title:</strong></label>
+            <input id="title" type="text" name="title" value={formData.title} onChange={handleChange} required />
+            
+            <label htmlFor="author"><strong>Author:</strong></label>
+            <input id="author" type="text" name="author" value={formData.author} onChange={handleChange} required />
+            
+            <label htmlFor="isbn"><strong>ISBN:</strong></label>
+            <input id="isbn" type="text" name="isbn" value={formData.isbn} onChange={handleChange} required />
+            
+            <label htmlFor="publication_date"><strong>Publication Date:</strong></label>
+            <input id="publication_date" type="date" name="publication_date" value={formData.publication_date} onChange={handleChange} required />
+            
+            <label htmlFor="genre"><strong>Genre:</strong></label>
+            <input id="genre" type="text" name="genre" value={formData.genre} onChange={handleChange} required />
+            
+            <button type="submit">Add Book</button>
+        </form>
+        <p className='add-book-message'>{message}</p>
     </div>
   );
 }

@@ -12,7 +12,8 @@ const Register = () => {
   const [error, setError] = useState(null); // State for error message
   const navigate = useNavigate(); // Initialize useNavigate hook
 
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
+    e.preventDefault()
     try {
       const response = await fetch(`${API_URL}/register`, {
         method: 'POST',

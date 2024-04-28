@@ -1,48 +1,86 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import Home from '../home'; // Corrected import path for Home component
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import { BrowserRouter as Router } from 'react-router-dom'; // Import BrowserRouter
+import Home from '../Home'; // Ensure correct path to Home component
 
-jest.mock('../../AdminStatusContext', () => ({ // Corrected import path for AdminStatusContext
+// Mock the UserDashboard and Login components
+jest.mock('../UserDashboard', () => {
+  return () => <div data-testid="user-dashboard-component">User Dashboard</div>;
+});
+
+jest.mock('../AdminDashboard', () => {
+  return () => <div data-testid="admin-dashboard-component">Admin Dashboard</div>;
+});
+
+jest.mock('../Login', () => {
+  return () => <div data-testid="login-component">Login</div>;
+});
+
+// Mock the useAdminStatus and useUser hooks
+jest.mock('../../AdminStatusContext', () => ({
   useAdminStatus: jest.fn(),
 }));
 
-jest.mock('../../UserContext', () => ({ // Corrected import path for UserContext
+jest.mock('../../UserContext', () => ({
   useUser: jest.fn(),
 }));
 
-describe('Home Component', () => {
-  test('renders Login component when user is not logged in', () => {
-    // Mock useUser hook to return null user
-    const useUserMock = jest.fn();
-    useUserMock.mockReturnValue({ user: null });
-    require('../../UserContext').useUser = useUserMock;
+describe('Home component', () => {
+  test('renders UserDashboard component when user is logged in and is not an admin', () => {
+    // Mock isAdmin to false
+    jest.spyOn(require('../../AdminStatusContext'), 'useAdminStatus').mockReturnValue({
+      isAdmin: false,
+      updateAdminStatus: jest.fn(), // Mock updateAdminStatus function
+    });
 
-    const { getByTestId } = render(<Home />);
-    expect(getByTestId('login-component')).toBeInTheDocument();
+    // Mock user data
+    jest.spyOn(require('../../UserContext'), 'useUser').mockReturnValue({
+      user: { name: 'John' },
+      updateUser: jest.fn(), // Mock updateUser function
+    });
+
+    render(
+      <Router>
+        <Home />
+      </Router>
+    );
+    expect(screen.getByTestId('user-dashboard-component')).toBeInTheDocument();
   });
 
-  test('renders AdminDashboard component when user is an admin', () => {
-    // Mock useAdminStatus hook to return isAdmin as true
-    const useAdminStatusMock = jest.fn();
-    useAdminStatusMock.mockReturnValue({ isAdmin: true });
-    require('../../AdminStatusContext').useAdminStatus = useAdminStatusMock;
+  test('renders AdminDashboard component when user is logged in and is an admin', () => {
+    // Mock isAdmin to true
+    jest.spyOn(require('../../AdminStatusContext'), 'useAdminStatus').mockReturnValue({
+      isAdmin: true,
+      updateAdminStatus: jest.fn(), // Mock updateAdminStatus function
+    });
 
-    const { getByTestId } = render(<Home />);
-    expect(getByTestId('admin-dashboard-component')).toBeInTheDocument();
+    // Mock user data
+    jest.spyOn(require('../../UserContext'), 'useUser').mockReturnValue({
+      user: { name: 'Admin' },
+      updateUser: jest.fn(), // Mock updateUser function
+    });
+
+    render(
+      <Router>
+        <Home />
+      </Router>
+    );
+    expect(screen.getByTestId('admin-dashboard-component')).toBeInTheDocument();
   });
 
-  test('renders UserDashboard component when user is not an admin', () => {
-    // Mock useUser hook to return non-null user
-    const useUserMock = jest.fn();
-    useUserMock.mockReturnValue({ user: { id: 1, name: 'Test User' } });
-    require('../../UserContext').useUser = useUserMock;
+  test('renders Login component when no one is logged in', () => {
+    // Mock user data to simulate no user logged in
+    jest.spyOn(require('../../UserContext'), 'useUser').mockReturnValue({
+      user: null,
+      updateUser: jest.fn(), // Mock updateUser function
+    });
 
-    // Mock useAdminStatus hook to return isAdmin as false
-    const useAdminStatusMock = jest.fn();
-    useAdminStatusMock.mockReturnValue({ isAdmin: false });
-    require('../../AdminStatusContext').useAdminStatus = useAdminStatusMock;
-
-    const { getByTestId } = render(<Home />);
-    expect(getByTestId('user-dashboard-component')).toBeInTheDocument();
+    render(
+      <Router>
+        <Home />
+      </Router>
+    );
+    expect(screen.getByTestId('login-component')).toBeInTheDocument();
   });
 });

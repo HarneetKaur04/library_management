@@ -1,8 +1,7 @@
-/* Navbar.css */
-
 /* Top container */
 .top {
   display: flex;
+  flex-wrap: wrap; /* Add flex-wrap property */
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px;
@@ -51,7 +50,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color:black;
+  color: black;
   font-size: 15px;
 }
 
@@ -71,7 +70,7 @@
   background-color: #333333;
   min-width: 160px;
   border-radius: 6px;
-  color:white;
+  color: white;
   transition: opacity 0.3s; /* Add transition for opacity */
   opacity: 0; /* Initially hide the dropdown */
 }
@@ -97,9 +96,8 @@
 }
 
 .dropdown-content a:hover {
-  background-color:#79670e;
+  background-color: #79670e;
 }
-
 
 /* Style for the right side of the top container */
 .topRight {
@@ -114,10 +112,10 @@
   color: #fff;
   border: none;
   cursor: pointer;
-  margin:0;
+  margin: 0;
   border-radius: 5px;
-  width:60px;
-  height:30px;
+  width: 60px;
+  height: 30px;
 }
 
 /* Profile link style */
@@ -127,5 +125,35 @@
 }
 
 .topRight .link:hover {
-  color:#79670e;;
+  color: #79670e;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 800px) {
+  .top {
+    padding: 10px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .topLeft {
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+
+  .link {
+    font-size: 13px; /* Adjust font size for smaller screens */
+    margin-right: 10px; /* Adjust margin for smaller screens */
+  }
+
+  .topListItem {
+    margin-right: 10px; /* Adjust margin for smaller screens */
+  }
+
+  .dropdown-content {
+    min-width: 120px; /* Adjust minimum width for smaller screens */
+  }
+
+  .topRight button {
+    margin-left: 10px; /* Adjust margin for smaller screens */
+    width: 50px; /* Adjust width for smaller screens */
+    height: 25px; /* Adjust height for smaller screens */
+  }
 }

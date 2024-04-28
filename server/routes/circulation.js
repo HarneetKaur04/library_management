@@ -103,16 +103,17 @@ router.get('/checked-out-books', async (req, res) => {
     try {
         // Fetch all books with availability_status as checked_out and not reserved
         const checkedOutBooks = await db.query(`
-            SELECT * 
+            SELECT books.*, book_transactions.user_id AS checked_out_by
             FROM books 
-            WHERE availability_status = $1
-            AND id NOT IN (
+            LEFT JOIN book_transactions ON books.id = book_transactions.book_id
+            WHERE books.availability_status = $1
+            AND books.id NOT IN (
                 SELECT book_id
                 FROM book_transactions
                 WHERE transaction_type = 'reserve'
             )
+            AND book_transactions.transaction_type = 'check_out'
         `, ['checked_out']);
-        console.log(checkedOutBooks, "checkedOutBooks")
       
         res.status(200).json({ checkedOutBooks });
     } catch (error) {
@@ -142,12 +143,22 @@ router.get('/reserved-books', async (req, res) => {
 // Endpoint to reserve a book
 router.post('/reserve', async (req, res) => {
   const { bookId, userId } = req.body;
+  console.log("reserve api point", req.body)
 
   try {
     // Check if the book is checked out by other user to make reservation
-    const book = await db.query('SELECT * FROM books WHERE id = $1 AND availability_status = $2', [bookId, 'checked_out']);
-    if (book.length === 0) {
-      return res.status(400).json({ error: 'The book is available immediately to check out. Please move to check-in/check-out tab' });
+    const checkedOutBook = await db.query(`
+      SELECT *
+      FROM books 
+      LEFT JOIN book_transactions ON books.id = book_transactions.book_id
+      WHERE books.id = $1
+      AND books.availability_status = 'checked_out'
+      AND book_transactions.transaction_type = 'check_out'
+      AND book_transactions.user_id != $2
+    `, [bookId, userId]);
+
+    if (checkedOutBook.length === 0) {
+      return res.status(400).json({ message: 'Book currently checked out by same user. Assign to some other user' });
     }
 
     // Insert transaction record for reservation

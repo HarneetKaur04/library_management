@@ -62,9 +62,6 @@ function Reserve() {
                 },
                 body: JSON.stringify(requestBody)
             });
-            if (!response.ok) {
-                throw new Error('Failed to reserve book');
-            }
             const data = await response.json();
             setMessage(data.message);
             setSelectedBookId('')
@@ -72,7 +69,6 @@ function Reserve() {
             fetchCheckedOutBooks();
         } catch (error) {
             console.error('Error reserving book:', error);
-            setMessage('An error occurred while reserving the book.');
         }
     };
 
@@ -91,9 +87,23 @@ function Reserve() {
             <p className='reserve-description'>Please select from the currently checked-out books that are not reserved. If you do not find your desired book listed, it may be available for immediate checkout or currently reserved by another user. You can navigate to the check-in/check-out tab for immediate availability or wait for the reservation to become available.</p>
             <select value={selectedBookId} onChange={(e) => setSelectedBookId(e.target.value)} className="reserve-select">
                 <option value="">Select a book to reserve</option>
-                {checkedOutBooks.map(book => (
-                    <option key={book.id} value={book.id}>{book.title} by {book.author}</option>
-                ))}
+                {checkedOutBooks.map(book => {
+                    // If there is a user and the user is not an admin, filter out books that match the user's ID so that same book currently checkedout by user cant be reserved immediately.
+                    if (user && !isAdmin && book.checked_out_by !== user.id) {
+                    return (
+                        <option key={book.id} value={book.id}>
+                        {book.title} by {book.author}
+                        </option>
+                    );
+                    }
+                    if (isAdmin) {
+                        return (
+                        <option key={book.id} value={book.id}>
+                            {book.title} by {book.author}
+                        </option>
+                        );
+                    }
+                })}
             </select>
             {isAdmin && (
                 <select value={selectedUserId} onChange={(e) => setSelectedUserId(e.target.value)} className="reserve-select">

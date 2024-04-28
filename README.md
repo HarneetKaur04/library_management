@@ -6,6 +6,7 @@
 Demo Video Link: <a href="">Live Demo Recording</a>
 
 Test admin you should use: admin@test.com  password: password
+<br/>
 Test user you can use: homer@simpson.com  password: homer
 
 
@@ -41,7 +42,7 @@ The system offers search mechanism for users to quickly locate books, authors, a
 Search functionalities include keyword search, locating books by title using alphabets on top, and advanced filter search for author search, genre search.
 
 ## Installation and Set Up
-- Go to your source directory in your terminal and run the command `git clone https://github.com/Yosolita1978/React-Express-PairProgramming.git NAMENEWDIRECTORY`
+- Go to your source directory in your terminal and run the command `git clone https://github.com/HarneetKaur04/library_management.git NAMENEWDIRECTORY`
 - To clean your folder from the owner git, run the command `rm -rf .git`
 - Run the command `git init` to start your git repository 
 

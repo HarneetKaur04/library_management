@@ -23,16 +23,13 @@ router.post('/register', async (req, res) => {
     const { username, email, password, contact } = req.body;
     
     // Check if the email is already registered
-    console.log(req.body)
     const existingUser = await db.query('SELECT * FROM users WHERE email = $1', [email]);
-    console.log(existingUser, existingUser, "check rows")
     if (existingUser.length > 0) {
       return res.status(400).json({ error: 'Email already registered' });
     }
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("hashedPassword", hashedPassword)
 
     // Insert the new user into the database
     await db.query('INSERT INTO users (username, email, password, contact_details) VALUES ($1, $2, $3, $4)', [username, email, hashedPassword, contact]);
@@ -65,19 +62,15 @@ router.get("/:id", async (req, res) => {
 // User login
 router.post('/login', async (req, res) => {
   try {
-    console.log(req.body)
     const { email, password } = req.body;
 
     // Check if the user exists
     const userQueryResult = await db.query('SELECT * FROM users WHERE email = $1', [email]);
-    console.log(userQueryResult[0].password, password)
     const user = userQueryResult[0]; // Extract the user from the query result
 
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-
-    console.log(await bcrypt.compare(password, user.password), "passcheck")
 
     // Compare passwords
     const isValidPassword = await bcrypt.compare(password, user.password);
@@ -152,7 +145,6 @@ router.get('/:userId/favorite-books', async (req, res) => {
     const favoriteBooks = await db.query('SELECT * FROM favorite_books WHERE user_id = $1', [userId]);
     
     res.status(200).json({ favoriteBooks });
-    console.log(favoriteBooks)
   } catch (error) {
     console.error('Error fetching favorite books:', error);
     res.status(500).json({ error: 'Internal server error' });
@@ -168,9 +160,9 @@ router.post('/:userId/favorite-books', async (req, res) => {
     // Insert the book into the user's favorite_books table
     await db.query('INSERT INTO favorite_books (user_id, book_id) VALUES ($1, $2)', [userId, bookId]);
     
-    res.status(200).json({ message: 'Book added to Read Later list successfully' });
+    res.status(200).json({ message: 'Book added to favorite list successfully' });
   } catch (error) {
-    console.error('Error adding book to Read Later list:', error);
+    console.error('Error adding book to favorite list:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -178,14 +170,16 @@ router.post('/:userId/favorite-books', async (req, res) => {
 // Remove Book from favorite list
 router.delete('/:userId/favorite-books/:bookId', async (req, res) => {
   const { userId, bookId } = req.params;
+  console.log(req.params, "reached delete endpoint for favorite books")
 
   try {
     // Delete the book from the user's favorite_books table
     await db.query('DELETE FROM favorite_books WHERE user_id = $1 AND book_id = $2', [userId, bookId]);
+    console.log(await db.query('SELECT FROM favorite_books WHERE user_id = $1 AND book_id = $2', [userId, bookId]))
     
-    res.status(200).json({ message: 'Book removed from Read Later list successfully' });
+    res.status(200).json({ message: 'Book removed from favorite list successfully' });
   } catch (error) {
-    console.error('Error removing book from Read Later list:', error);
+    console.error('Error removing book from favorite list:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

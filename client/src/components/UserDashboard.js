@@ -52,24 +52,13 @@ const UserDashboard = () => {
   const fetchFavoriteBooks = async () => {
     try {
       // Wait for allBooks to be populated
-      await fetchAllBooks(); 
+      await fetchAllBooks();
       const response = await fetch(`http://localhost:5000/api/users/${user.id}/favorite-books`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      // Filter favorite books directly from the fetched data
-      const favoriteBooksWithInfo = data.favoriteBooks.map(async favorite => {
-        const response = await fetch(`http://localhost:5000/api/books/${favorite.book_id}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch book information');
-        }
-        const bookInfo = await response.json();
-        return { ...bookInfo, favoriteId: favorite.id }; // Add favoriteId for reference
-      });
-      Promise.all(favoriteBooksWithInfo).then(favorites => {
-        setFavoriteBooks(favorites);
-      });
+      setFavoriteBooks(data.favoriteBooks);
     } catch (error) {
       console.error('Error fetching favorite books:', error);
     }
@@ -125,6 +114,7 @@ const UserDashboard = () => {
       <h2>Welcome <span style={{ color: '#79670e' }}>{user.username}</span> to your Personalized Dashboard!</h2>
       <br/>
       <div className="grid-container">
+        {/* Available Books */}
         <div className="grid-item">
           <div className="user-dash-section">
             <h3>
@@ -139,6 +129,7 @@ const UserDashboard = () => {
             </ul>
           </div>
         </div>
+        {/* Checked Out Books */}
         <div className="grid-item">
           <div className="user-dash-section">
             <h3>
@@ -156,16 +147,18 @@ const UserDashboard = () => {
             </ul>
           </div>
         </div>
+        {/* Reserved Books */}
         <div className="grid-item">
-        <div className="user-dash-section">
-          <h3>Reserved books count: {reservedBooks.length}</h3>
-          <ul>
-            {reservedBooks.map(book => (
-              <li key={book.id}>{book.title}</li>
-            ))}
-          </ul>
+          <div className="user-dash-section">
+            <h3>Reserved books count: {reservedBooks.length}</h3>
+            <ul>
+              {reservedBooks.map(book => (
+                <li key={book.id}>{book.title}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
+        {/* Read Books */}
         <div className="grid-item">
           <div className="user-dash-section">
             <h3>Books read so far ({readBooks.length})</h3>
@@ -176,21 +169,27 @@ const UserDashboard = () => {
             </ul>
           </div>
         </div>
+        {/* Favorite Books */}
         <div className="grid-item">
           <div className="user-dash-section">
             <h3>Favorite books count: {favoriteBooks.length}</h3>
-            <ul>
-              {favoriteBooks.map(book => (
-                <li key={book.favoriteId}>
-                  {book.title}
-                  <button className="unfavorite-button" onClick={() => handleFavoriteToggle(book.favoriteId, true)}>Unfavorite</button>
-                </li>
-              ))}
-            </ul>
+            {favoriteBooks.map(favorite => {
+                const book = allBooks.find(book => book.id === favorite.book_id);
+                if (book) {
+                return (
+                    <li key={book.id}>
+                    {book.title}
+                    <button className="unfavorite-button" onClick={() => handleFavoriteToggle(book.id, true)}>Unfavorite</button>
+                    </li>
+                );
+                } else {
+                return null; // Skip rendering if book is not found
+                }
+            })}
           </div>
         </div>
       </div>
-  
+      {/* Navigation Buttons */}
       <div className="user-dash-button-container">
         <button className="user-button" onClick={() => navigate('/books')}>View Catalogue</button>
         <button className="user-button" onClick={() => navigate('/profile')}>View Profile</button>

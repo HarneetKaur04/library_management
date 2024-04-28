@@ -1,11 +1,11 @@
 .checkinout-container {
-    margin: 20px auto;
-    width: 80%;
-    background-color: #f7f7f7;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom:100px;
+  margin: 20px auto;
+  width: 80%;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom:100px;
 }
 
 .container-top-img {
@@ -26,42 +26,42 @@
 }
 
 .checkinout-card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .checkinout-card h2 {
-    margin-bottom: 10px;
-    color: #333;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .checkinout-select {
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .checkinout-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #408ee2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #408ee2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .checkinout-button:hover {
-    background-color: #3071a9;
+  background-color: #3071a9;
 }
 
 .checkinout-message {
-    margin-top: 10px;
-    color: #008000;
-    font-weight: bold;
+  margin-top: 10px;
+  color: #008000;
+  font-weight: bold;
 }

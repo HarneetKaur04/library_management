@@ -1,104 +1,103 @@
 .user-dash {
-    margin: 20px;
-    background-color: white; /* Set background color to white */
-    padding: 20px; /* Add padding for spacing */
-    border-radius: 10px; /* Add border radius for rounded corners */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
-  }
-  
-  .user-dash h2 {
-    margin-top: 0; /* Remove default margin for h2 */
-    text-align: center; /* Center align the text */
-    font-size: 24px; /* Increase font size for better readability */
-    color: #333; /* Set text color to dark gray */
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .grid-item {
-    background-color: #f9f9f9; /* Set background color for grid items */
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
-  }
-  
-  .user-dash-section {
-    padding: 20px;
-  }
-  
-  .user-dash-section h3 {
-    margin-top: 0;
-    font-size: 18px; /* Decrease font size for section headings */
-    color: #333; /* Set text color to dark gray */
-  }
-  
-  .user-dash-section ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .user-dash-section ul ul {
-    list-style: disc;
-    margin-left: 20px;
-  }
+  margin: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
 
-  .user-dash-section li {
-    cursor: auto !important;
-  }
-  
-  .user-dash-section button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    font-size: 16px; /* Set font size for buttons */
-    color: #007bff; /* Set text color to blue */
-  }
-  
-  .user-dash-section button:hover {
-    text-decoration: underline;
-  }
+.user-dash h2 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
 
-  .unfavorite-button {
-    background-color: #79670e !important;
-    color:white !important;
-    border: none !important;
-    border-radius: 5px !important;
-    cursor: pointer !important;
-    padding: 10px 20px !important;
-    text-decoration: none !important;
-  }
-  
-  .user-dash-button-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-  }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
 
-  .dash-heading-btn {
-    background-color: #79670e !important;
-    color:white !important;
-    border: none !important;
-    border-radius: 5px !important;
-    cursor: pointer !important;
-    padding: 10px 20px !important;
-    text-decoration: none !important;
-  }
-  
-  .user-button {
-    padding: 10px 20px;
-    background-color: #79670e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .user-button:hover {
-    background-color: #615103;
-  }
-  
+.grid-item {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-dash-section {
+  padding: 20px;
+}
+
+.user-dash-section h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.user-dash-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.user-dash-section ul ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.user-dash-section li {
+  cursor: auto !important;
+}
+
+.user-dash-section button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px;
+  color: #007bff;
+}
+
+.user-dash-section button:hover {
+  text-decoration: underline;
+}
+
+.unfavorite-button {
+  background-color: #79670e !important;
+  color:white !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  padding: 10px 20px !important;
+  text-decoration: none !important;
+}
+
+.user-dash-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dash-heading-btn {
+  background-color: #79670e !important;
+  color:white !important;
+  border: none !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  padding: 10px 20px !important;
+  text-decoration: none !important;
+}
+
+.user-button {
+  padding: 10px 20px;
+  background-color: #79670e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-button:hover {
+  background-color: #615103;
+}

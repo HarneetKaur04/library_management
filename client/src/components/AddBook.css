@@ -1,48 +1,48 @@
 .add-book {
-    width:40%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-    margin-top: 20px;
-  }
+  width:40%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  margin-top: 20px;
+}
+
+.add-book h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.add-book form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-book form input[type="text"],
+.add-book form input[type="date"] {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
   
-  .add-book h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
+.add-book form button {
+  width: 100px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
   
-  .add-book form label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .add-book form input[type="text"],
-  .add-book form input[type="date"] {
-    width: 95%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .add-book form button {
-    width: 100px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 0 auto; /* Center the button horizontally */
-    display: block; /* Ensure the button is a block-level element */
-    text-align: center; /* Center the text inside the button */
-  }
-  
-  .add-book form button:hover {
-    background-color: #0056b3;
-  }
+.add-book form button:hover {
+  background-color: #0056b3;
+}
   

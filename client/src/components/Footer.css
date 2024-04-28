@@ -1,52 +1,49 @@
 .footerCenter {
-    position: fixed; /* Change to fixed position to keep the footer at the bottom of the viewport */
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    padding: 20px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:30px;
-    transform: translateY(0); /* Use translateY to position it at the bottom */
-    z-index: 999; /* Ensure the footer appears above other content */
-  }
-  
-  .content {
-    margin-bottom: 60px; /* Adjust this value to set the desired margin between content and footer */
-  }
-  
-  
-  
-  .footer {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .social_media {
-    margin-right: 10px;
-  }
-  
-  .social_media a {
-    color: black;
-    text-decoration: none;
-  }
-  
-  .social_media a:hover {
-    color: #007bff;
-  }
-  
-  .topIcon {
-    font-size: 24px;
-  }
-  
-  .footer div {
-    margin-left: 20px;
-    font-size: 14px;
-    color: white;
-  }
-  
+  position: fixed; /* Change to fixed position to keep the footer at the bottom of the viewport */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:30px;
+  transform: translateY(0); /* Use translateY to position it at the bottom */
+  z-index: 999;
+}
+
+.content {
+  margin-bottom: 60px; 
+}
+
+.footer {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.social_media {
+  margin-right: 10px;
+}
+
+.social_media a {
+  color: black;
+  text-decoration: none;
+}
+
+.social_media a:hover {
+  color: #007bff;
+}
+
+.topIcon {
+  font-size: 24px;
+}
+
+.footer div {
+  margin-left: 20px;
+  font-size: 14px;
+  color: white;
+}

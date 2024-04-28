@@ -1,179 +1,179 @@
 .page-container {
-    position: relative;
-    margin-bottom: 100px;
-  }
-  
-  .background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1 !important;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.5;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .content-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    z-index: 1 !important;
-  }
-  
-  .filter-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-  
-  .filter-by h2 {
-    font-size: 15px;
-  }
-  
-  .title-alphabets {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-    flex-wrap: wrap;
-  }
-  
-  .title-alphabets button {
-    margin-right: 5px;
-    background-color: #f0f0f0;
-    color: #333;
-    font-weight: bold;
-    width: 50px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  }
-  
-  .title-alphabets button:hover {
-    background-color: #79670e;
-    color: white;
-  }
-  
-  .filter-by {
-    margin-right: 20px;
-  }
-  
-  .search-filter {
-    flex: 0 0 100%;
-    margin-bottom: 20px;
-  }
-  
-  .search-filter input {
-    width: 300px;
-  }
-  
-  .all-books {
-    flex: 1;
-    width: 100%;
-  }
-  
-  .book-details {
-    flex: 1;
-    margin-left: 10px;
-    margin-top: 20px;
-  }
-  
-  h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 18px;
-    padding: 10px;
-    margin-bottom: 5px;
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  li:hover {
-    background-color: #e2dfd0;
-  }
-  
-  .book-details-container {
-    background-color: #f9f7f2;
-    box-shadow: 0px 0px 20px rgba(211, 161, 161, 0.1);
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .book-details-container h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-  
-  .book-details-container p {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-  
-  /* Adjust the positioning of the buttons */
-  .edit-btn {
-    margin-left: auto;
-    margin-right: 5px;
-  }
-  
-  /* edit, delete, and favorite buttons */
-  .edit-btn,
-  .delete-btn,
-  .favorite-btn {
-    padding: 8px 16px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .edit-btn {
-    background-color: #408ee2;
-    color: #fff;
-  }
-  
-  .delete-btn {
-    background-color: #f6828d;
-    color: #fff;
-  }
-  
-  .favorite-btn {
-    background-color: #6fae62;
-    color: #fff;
-    width: 90px;
-  }
-  
-  /* Hover effects */
-  .edit-btn:hover,
-  .delete-btn:hover,
-  .favorite-btn:hover {
-    opacity: 0.5;
-  }
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1 !important;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 1 !important;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.filter-by h2 {
+  font-size: 15px;
+}
+
+.title-alphabets {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  flex-wrap: wrap;
+}
+
+.title-alphabets button {
+  margin-right: 5px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+  width: 50px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.title-alphabets button:hover {
+  background-color: #79670e;
+  color: white;
+}
+
+.filter-by {
+  margin-right: 20px;
+}
+
+.search-filter {
+  flex: 0 0 100%;
+  margin-bottom: 20px;
+}
+
+.search-filter input {
+  width: 300px;
+}
+
+.all-books {
+  flex: 1;
+  width: 100%;
+}
+
+.book-details {
+  flex: 1;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+li:hover {
+  background-color: #e2dfd0;
+}
+
+.book-details-container {
+  background-color: #f9f7f2;
+  box-shadow: 0px 0px 20px rgba(211, 161, 161, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.book-details-container h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.book-details-container p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+/* Adjust the positioning of the buttons */
+.edit-btn {
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+/* edit, delete, and favorite buttons */
+.edit-btn,
+.delete-btn,
+.favorite-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #408ee2;
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: #f6828d;
+  color: #fff;
+}
+
+.favorite-btn {
+  background-color: #6fae62;
+  color: #fff;
+  width: 90px;
+}
+
+/* Hover effects */
+.edit-btn:hover,
+.delete-btn:hover,
+.favorite-btn:hover {
+  opacity: 0.5;
+}
   

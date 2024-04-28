@@ -1,81 +1,80 @@
 .login-form {
-    width:400px;
-    margin: auto auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f7f7f7;
-    margin-top: 100px;
-  }
-  
-  .login-form div {
-    margin-bottom: 20px; /* Add margin between form elements */
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Align items vertically */
-  }
-  
-  .login-form label {
-    flex: 1; /* Let labels grow to take available space */
-    margin-right: 1px; /* Add margin between label and input */
-    font-size: 20px;
-    font-weight: 400;
-    text-align: left;
-  }
-  
-  .login-form input {
-    flex: 2; /* Let input fields grow to take more space */
-    width: 90%; /* Make input fields fill the width of their container */
-    padding: 8px; /* Add padding to input fields */
-    border: 1px solid #ccc; /* Add border to input fields */
-    border-radius: 4px; /* Add border radius to input fields */
-  }
-  
-  .login-form p {
-    margin-top: 10px; /* Add margin above error message */
-  }
-  
-  .login-form button {
-    width: 100px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 0 auto; /* Center the button horizontally */
-    display: block; /* Ensure the button is a block-level element */
-    text-align: center; /* Center the text inside the button */
-    margin-top: 60px;
-  }
-  
-  .login-form button:hover {
-    background-color: #0056b3; /* Darken background color on hover */
-  }
+  width:400px;
+  margin: auto auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  margin-top: 100px;
+}
 
-  .login-form h2 {
-    font-size: 24px; /* Increase font size */
-    margin-bottom: 25px; /* Add margin below the heading */
-    text-transform: uppercase; /* Convert text to uppercase */
-    letter-spacing: 1px; /* Add spacing between letters */
-    font-weight: bold; /* Make text bold */
-    text-align: center;
-  }
+.login-form div {
+  margin-bottom: 20px; /* Add margin between form elements */
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Align items vertically */
+}
 
-  .register-link {
-    margin: 0;
-  }
+.login-form label {
+  flex: 1; /* Let labels grow to take available space */
+  margin-right: 1px; /* Add margin between label and input */
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+}
 
-  /* register link styling */
-  
-  .login-form p a {
-    color: #007bff; /* Set link color */
-    text-decoration: none; /* Remove default underline */
-    font-weight: bold; /* Make the link bold */
-  }
-  
-  .login-form p a:hover {
-    text-decoration: underline; /* Add underline on hover */
-  }
-  
-  
+.login-form input {
+  flex: 2; /* Let input fields grow to take more space */
+  width: 90%; /* Make input fields fill the width of their container */
+  padding: 8px; /* Add padding to input fields */
+  border: 1px solid #ccc; /* Add border to input fields */
+  border-radius: 4px; /* Add border radius to input fields */
+}
+
+.login-form p {
+  margin-top: 10px; /* Add margin above error message */
+}
+
+.login-form button {
+  width: 100px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 auto; /* Center the button horizontally */
+  display: block; /* Ensure the button is a block-level element */
+  text-align: center; /* Center the text inside the button */
+  margin-top: 60px;
+}
+
+.login-form button:hover {
+  background-color: #0056b3; /* Darken background color on hover */
+}
+
+.login-form h2 {
+  font-size: 24px; /* Increase font size */
+  margin-bottom: 25px; /* Add margin below the heading */
+  text-transform: uppercase; /* Convert text to uppercase */
+  letter-spacing: 1px; /* Add spacing between letters */
+  font-weight: bold; /* Make text bold */
+  text-align: center;
+}
+
+.register-link {
+  margin: 0;
+}
+
+/* register link styling */
+
+.login-form p a {
+  color: #007bff; /* Set link color */
+  text-decoration: none; /* Remove default underline */
+  font-weight: bold; /* Make the link bold */
+}
+
+.login-form p a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+

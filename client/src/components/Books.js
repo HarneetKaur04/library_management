@@ -62,7 +62,7 @@ function Books() {
 
   const handleBookClick = (bookId) => {
     setSelectedBook(bookId); // Set the selected book id
-    setIsModalOpen(false); // Close modal when a book is selected
+    setIsModalOpen(false);
   };
 
   const handleEditBook = (bookId) => {
@@ -140,9 +140,9 @@ function Books() {
   const filterBooksByAlphabet = (alphabet) => {
     setSelectedAlphabet(alphabet === selectedAlphabet ? null : alphabet); // Toggle selection
     setSearchQuery(''); // Reset search query
-    setSelectedBook(null); // Reset selected book
-    setSelectedGenre(''); // Reset selected genre
-    setSelectedAuthor(''); // Reset selected author
+    setSelectedBook(null);
+    setSelectedGenre('');
+    setSelectedAuthor('');
   };
 
   const handleSearchInputChange = (event) => {
@@ -151,17 +151,17 @@ function Books() {
 
     // Clear alphabet filter when user starts typing in the search input
     setSelectedAlphabet(null);
-    setSelectedGenre(''); // Clear selected genre when searching
-    setSelectedAuthor(''); // Clear selected author when searching
+    setSelectedGenre('');
+    setSelectedAuthor('');
   };
 
   const handleFilterChange = (event) => {
     const filter = event.target.value;
     setSelectedFilter(filter);
     setSearchQuery(''); // Clear search query when changing filter
-    setSelectedAlphabet(null); // Clear alphabet filter
-    setSelectedGenre(''); // Clear genre filter
-    setSelectedAuthor(''); // Clear author filter
+    setSelectedAlphabet(null);
+    setSelectedGenre('');
+    setSelectedAuthor('');
   };
 
   const handleGenreChange = (event) => {
@@ -246,7 +246,7 @@ function Books() {
   // Close modal function
   const closeModal = () => {
     setIsModalOpen(false);
-    setEditBookInfo(null); // Clear edit book info
+    setEditBookInfo(null);
   };
 
   return (
@@ -303,7 +303,6 @@ function Books() {
           {selectedBook && !isModalOpen && <BookDetails bookId={selectedBook}/>} {/* Render BookDetails if a book is selected */}
         </div>
       </div>
-      {/* Render modal only if modal is open */}
       {isModalOpen && editBookInfo && (
         <Modal
           bookInfo={editBookInfo}

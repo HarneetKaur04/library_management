@@ -1,50 +1,50 @@
 .register-form {
-    width: 40%; /* Set maximum width for the form */
-    margin: 0 auto; /* Center the form horizontally */
-    padding: 20px; /* Add some padding around the form */
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    margin-top:25px;
-    border-radius: 5px;
-  }
-  
-  .register-form h2 {
-    font-size: 24px; /* Increase font size */
-    margin-bottom: 25px; /* Add margin below the heading */
-    text-transform: uppercase; /* Convert text to uppercase */
-    letter-spacing: 1px; /* Add spacing between letters */
-    font-weight: bold; /* Make text bold */
-    text-align: center; /* Center align the heading */
-  }
-  
-  .register-form input {
-    width: 95%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .register-form button {
-    width: 100px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 0 auto; /* Center the button horizontally */
-    display: block; /* Ensure the button is a block-level element */
-    text-align: center; /* Center the text inside the button */
-  }
-  
-  .register-form button:hover {
-    background-color: #0056b3; /* Darken background color on hover */
-  }
-  
-  .register-form p {
-    margin-top: 10px; /* Add margin above error message */
-    color: red; /* Set text color for error message */
-    text-align: center; /* Center align the error message */
-  }
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  margin-top:25px;
+  border-radius: 5px;
+}
+
+.register-form h2 {
+  font-size: 24px; 
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.register-form input {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register-form button {
+  width: 100px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 auto; /* Center the button horizontally */
+  display: block;
+  text-align: center;
+}
+
+.register-form button:hover {
+  background-color: #0056b3;
+}
+
+.register-form p {
+  margin-top: 10px;
+  color: red;
+  text-align: center;
+}

@@ -25,20 +25,20 @@ The Library Management System is a web application designed to facilitate the ma
 ### Key Components:
 #### User Authentication:
 - Users can register for an account and login securely.
-- Authentication ensures secure access to library services and resources.
+- Authentication ensures secure access to library services like editing/deleting/favoriting/check-in-out/reserve and resources based on the role (admin vs other users)
 #### User Management:
-- Admin can manage users by adding/editing/deleting/viewing users and their personal details.
+- Admin can manage users by adding/editing/deleting/viewing users and their personal details. Users can also edit their profile.
 - User profiles can manage their personal library by logging into their personal dashboard, favoriting/unfavorites books, see all books read by a user, checked out books etc.
 #### CRUD Operation for Books:
-- Users and admin can perform CRUD operations on books, including adding, viewing, updating, and deleting books.
+- Admin can perform CRUD operations on books: adding, viewing, updating, and deleting books. Users can view/add/favorite/unfavorite a book.
 #### Book Management:
 - The system allows for the acquisition, cataloging and organization of books within the library.
 - Each book entry includes details such as title, author, ISBN, publication date, and genre.
 #### Circulation Management:
 - Automated processes handle book check-in and reservation to streamline circulation activities for overdue return books and assigning to reserved user.
-- Users can check-in books, check-out books and place reservations for books that are currently unavailable (i.e. checked out by some user)
+- Users as well as Admin can check-in books, check-out books and place reservations for books that are currently unavailable (i.e. checked out by some user)
 #### Search and Retrieval:
-The system offers search mechanism for users to quickly locate books, authors, and other library resources.
+The system offers search mechanism for users to quickly locate books, authors, genre under books tab, users for admin under users tab and library resources on navbar.
 Search functionalities include keyword search, locating books by title using alphabets on top, and advanced filter search for author search, genre search.
 
 ## Installation and Set Up
@@ -135,7 +135,7 @@ These routes provide functionalities for managing users, books, and circulation 
 ## Tests
 The test suite includes tests for multiple components. There are currently 4 test suites and 11 tests. These tests cover various aspects of the application, including rendering, user interaction, authentication, and API communication. 
 ### Register Component Test:
-- Verifies that the registration form renders correctly with input fields for username, email, password, and contact.
+- Verifies that the registration form renders correctly with input fields for username, email, password, and phone no.
 - Ensures that the component handles form input changes accurately.
 - Tests the form submission process, ensuring that the component makes the expected API call and navigates to the correct route upon successful registration.
 ### Home Component Test:

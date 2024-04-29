@@ -21,7 +21,7 @@ describe('Register component', () => {
     expect(screen.getByPlaceholderText('Username')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Email')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Contact')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Phone No.')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Register' })).toBeInTheDocument();
   });
 
@@ -35,7 +35,7 @@ describe('Register component', () => {
     const usernameInput = screen.getByPlaceholderText('Username');
     const emailInput = screen.getByPlaceholderText('Email');
     const passwordInput = screen.getByPlaceholderText('Password');
-    const contactInput = screen.getByPlaceholderText('Contact');
+    const contactInput = screen.getByPlaceholderText('Phone No.');
 
     fireEvent.change(usernameInput, { target: { value: 'testuser' } });
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
@@ -68,7 +68,7 @@ describe('Register component', () => {
     const usernameInput = screen.getByPlaceholderText('Username');
     const emailInput = screen.getByPlaceholderText('Email');
     const passwordInput = screen.getByPlaceholderText('Password');
-    const contactInput = screen.getByPlaceholderText('Contact');
+    const contactInput = screen.getByPlaceholderText('Phone No.');
     const registerButton = screen.getByRole('button', { name: 'Register' });
 
     fireEvent.change(usernameInput, { target: { value: 'testuser' } });

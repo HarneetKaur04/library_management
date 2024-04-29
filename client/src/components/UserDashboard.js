@@ -124,7 +124,7 @@ const UserDashboard = () => {
             </h3>
             <ul>
               {availableBooks.map(book => (
-                <li key={book.id}>{book.title}</li>
+                <li className= "user-dash-list" key={book.id}>{book.title}</li>
               ))}
             </ul>
           </div>
@@ -141,7 +141,7 @@ const UserDashboard = () => {
               {checkedOutBooks.map(checkedOutBook => {
                 const book = allBooks.find(book => book.id === checkedOutBook.book_id);
                 return (
-                  <li key={checkedOutBook.id}>{book ? book.title : "Unknown"}</li>
+                  <li className= "user-dash-list" key={checkedOutBook.id}>{book ? book.title : "Unknown"}</li>
                 );
               })}
             </ul>
@@ -153,7 +153,7 @@ const UserDashboard = () => {
             <h3>Reserved books count: {reservedBooks.length}</h3>
             <ul>
               {reservedBooks.map(book => (
-                <li key={book.id}>{book.title}</li>
+                <li className= "user-dash-list" key={book.id}>{book.title}</li>
               ))}
             </ul>
           </div>
@@ -164,7 +164,7 @@ const UserDashboard = () => {
             <h3>Books read so far ({readBooks.length})</h3>
             <ul>
               {readBooks.map(book => (
-                <li key={book.id}>{book.title}</li>
+                <li className= "user-dash-list" key={book.id}>{book.title}</li>
               ))}
             </ul>
           </div>
@@ -172,15 +172,17 @@ const UserDashboard = () => {
         {/* Favorite Books */}
         <div className="grid-item">
           <div className="user-dash-section">
-            <h3>Favorite books count: {favoriteBooks.length}</h3>
+          <h3>Favorite books count: {favoriteBooks.length}</h3>
             {favoriteBooks.map(favorite => {
                 const book = allBooks.find(book => book.id === favorite.book_id);
                 if (book) {
                 return (
-                    <li key={book.id}>
+                  <div className='fav-books-align'>
+                    <li className= "user-dash-list" key={book.id}>
                     {book.title}
                     <button className="unfavorite-button" onClick={() => handleFavoriteToggle(book.id, true)}>Unfavorite</button>
                     </li>
+                  </div>
                 );
                 } else {
                 return null; // Skip rendering if book is not found

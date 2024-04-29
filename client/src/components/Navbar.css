@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 50px;
-  background-color: #333;
+  background-color: #3e362e;
   color: #fff;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .homeLink:hover {
-  color: #79670e;
+  color: #865d36;
 }
 
 /* Links in the top navigation */
@@ -29,20 +29,33 @@
   text-decoration: none;
   margin-right: 20px;
   font-size: 15px;
-  color: black;
+  color: white;
+  font-weight:700;
 }
 
 /* List container for the top navigation */
 .topList {
   display: flex;
   list-style-type: none;
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
 }
+
 
 /* List items in the top navigation */
 .topListItem {
   margin-right: 20px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #836549;
+  border-radius: 5px;
+  cursor: pointer;
+  color:white;
+}
+
+.topListItem:hover{
+  background-color: #3e362e;
 }
 
 /* Dropdown button style */
@@ -50,8 +63,9 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: black;
+  color: white;
   font-size: 15px;
+  font-weight: 600;
 }
 
 /* Dropdown container style */
@@ -67,7 +81,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #333333;
+  background-color: #3e362e;
   min-width: 160px;
   border-radius: 6px;
   color: white;
@@ -96,7 +110,7 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #79670e;
+  background-color: #93785b;
 }
 
 /* Style for the right side of the top container */
@@ -108,8 +122,8 @@
 /* Logout button style */
 .topRight button {
   margin-left: 20px;
-  background-color: #79670e;
-  color: #fff;
+  background-color: #836549;
+  color: white;
   border: none;
   cursor: pointer;
   margin: 0;
@@ -125,7 +139,45 @@
 }
 
 .topRight .link:hover {
-  color: #79670e;
+  color: #865d36;
+}
+
+.search-bar-nav {
+  margin-right: 20px;
+  position: relative; /* Add position relative */
+}
+
+.search-suggestions {
+  position: absolute;
+  background-color: #3e362e;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1500;
+  width: 200px; /* Adjust width if needed */
+  margin-top: 65px;
+}
+
+.search-suggestions ul {
+  list-style: none;
+}
+
+.search-suggestions li {
+  background-color: #d7c5b4 !important;
+  align-items: left !important;
+  justify-content: space-between;
+  font-size: 20px !important;
+  margin-bottom: 0.5px !important;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 2px 2px;
+}
+
+.search-suggestions li:hover {
+  background-color: #93785b !important;
+}
+
+.search-suggestions a {
+  color:black;
+  text-decoration: none;
 }
 
 /* Media query for smaller screens */

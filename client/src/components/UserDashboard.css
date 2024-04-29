@@ -1,6 +1,6 @@
 .user-dash {
   margin: 20px;
-  background-color: white;
+  background-color: #f6ece3;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -45,12 +45,13 @@
   margin-left: 20px;
 }
 
-.user-dash-section li {
-  cursor: auto !important;
+.user-dash-list:hover {
+  background-color: transparent;
+  color:black;
 }
 
 .user-dash-section button {
-  background-color: transparent;
+  background-color: #3e362e !important;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -60,16 +61,22 @@
 
 .user-dash-section button:hover {
   text-decoration: underline;
+  background-color: #836549 !important;
+}
+
+.fav-books-align {
+  display: flex;
 }
 
 .unfavorite-button {
-  background-color: #79670e !important;
   color:white !important;
   border: none !important;
   border-radius: 5px !important;
   cursor: pointer !important;
   padding: 10px 20px !important;
   text-decoration: none !important;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 .user-dash-button-container {
@@ -80,7 +87,7 @@
 }
 
 .dash-heading-btn {
-  background-color: #79670e !important;
+  background-color: #3e362e;
   color:white !important;
   border: none !important;
   border-radius: 5px !important;
@@ -91,7 +98,7 @@
 
 .user-button {
   padding: 10px 20px;
-  background-color: #79670e;
+  background-color: #3e362e;
   color: white;
   border: none;
   border-radius: 5px;
@@ -99,5 +106,5 @@
 }
 
 .user-button:hover {
-  background-color: #615103;
+  background-color: #836549;
 }

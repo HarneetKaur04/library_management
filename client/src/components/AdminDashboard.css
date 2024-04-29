@@ -51,7 +51,7 @@
 /* Style for the admin buttons */
 .admin-button {
   padding: 12px 24px; 
-  background-color: #79670e;
+  background-color: #3e362e;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -62,8 +62,8 @@
 }
 
 .admin-button:hover {
-  background-color: #fff;
-  color: #79670e;
+  background-color: #836549;
+  color: white;
 }
 
 /* Media query for smaller screens */

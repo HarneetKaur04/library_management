@@ -7,6 +7,7 @@ const User = () => {
   const [error, setError] = useState(null);
   const [isEditing, setIsEditing] = useState(null); // State to track the editing status
   const [editedUser, setEditedUser] = useState(null); // State to store edited user data
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -88,6 +89,12 @@ const User = () => {
     }));
   };
 
+  // Filter users based on search query
+  const filteredUsers = users.filter(user => {
+    const searchString = `${user.username} ${user.email} ${user.contact_details}`.toLowerCase();
+    return searchString.includes(searchQuery.toLowerCase());
+  });
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -99,8 +106,15 @@ const User = () => {
   return (
     <div className='user'>
       <h2>LIST OF ALL USERS</h2>
+      <input
+        type="text"
+        placeholder="Search Users..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="search-input"
+      />
       <ul className="user-list">
-      {users
+      {filteredUsers
       .filter(user => user.email !== 'admin@test.com')
       .map(user => (
         <li key={user.id} className="user-item">
@@ -134,11 +148,11 @@ const User = () => {
             // Render user details if user is not being edited
             <>
               <p>
-                <strong>USERNAME:</strong> {user.username},
+                <strong>USERNAME:</strong> {user.username}
                 <br />
-                <strong>EMAIL:</strong> {user.email},
+                <strong>EMAIL:</strong> {user.email}
                 <br />
-                <strong>CONTACT:</strong> {user.contact_details}
+                <strong>PHONE:</strong> {user.contact_details}
               </p>
               <button onClick={() => handleEditUser(user.id)} className="action-button edit-button">Edit</button>
               <button onClick={() => handleDeleteUser(user.id)} className="action-button delete-button">Delete</button>

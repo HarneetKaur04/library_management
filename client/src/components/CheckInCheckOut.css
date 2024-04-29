@@ -1,7 +1,7 @@
 .checkinout-container {
   margin: 20px auto;
   width: 80%;
-  background-color: #f7f7f7;
+  background-color: #f6ece3;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -48,7 +48,7 @@
 .checkinout-button {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #408ee2;
+  background-color: #836549;
   color: white;
   border: none;
   border-radius: 5px;
@@ -57,7 +57,7 @@
 }
 
 .checkinout-button:hover {
-  background-color: #3071a9;
+  background-color: #3e362e;
 }
 
 .checkinout-message {

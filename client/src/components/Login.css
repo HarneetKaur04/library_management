@@ -1,10 +1,10 @@
 .login-form {
-  width:400px;
+  width:600px;
   margin: auto auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f7f7f7;
+  background-color: #f6ece3;
   margin-top: 150px;
 }
 
@@ -20,6 +20,7 @@
   font-size: 20px;
   font-weight: 400;
   text-align: left;
+  margin-right:10px;
 }
 
 .login-form input {
@@ -37,7 +38,7 @@
 .login-form button {
   width: 100px;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #836549;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -50,7 +51,7 @@
 }
 
 .login-form button:hover {
-  background-color: #0056b3; /* Darken background color on hover */
+  background-color: #3e362e; /* Darken background color on hover */
 }
 
 .login-form h2 {
@@ -69,7 +70,7 @@
 /* register link styling */
 
 .login-form p a {
-  color: #007bff; /* Set link color */
+  color: #3e362e; /* Set link color */
   text-decoration: none; /* Remove default underline */
   font-weight: bold; /* Make the link bold */
 }

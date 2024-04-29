@@ -1,6 +1,13 @@
 .page-container {
   position: relative;
   margin-bottom: 100px;
+  background-color: #f6ece3; /* Add white background */
+  color: #333; /* Set text color */
+  font-family: Arial, sans-serif; /* Set font family */
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top:20px;
+  border-radius: 10px;
 }
 
 .background-image {
@@ -26,7 +33,6 @@
 }
 
 .filter-section {
-  display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 20px;
@@ -34,6 +40,7 @@
 
 .filter-by h2 {
   font-size: 15px;
+  font-weight: bold; /* Add font weight */
 }
 
 .title-alphabets {
@@ -41,12 +48,14 @@
   align-items: center;
   margin-left: 10px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .title-alphabets button {
   margin-right: 5px;
-  background-color: #f0f0f0;
-  color: #333;
+  margin-bottom: 5px;
+  background-color: #3e362e;
+  color: white;
   font-weight: bold;
   width: 50px;
   border: 1px solid #ccc;
@@ -57,7 +66,7 @@
 }
 
 .title-alphabets button:hover {
-  background-color: #79670e;
+  background-color: #836549;
   color: white;
 }
 
@@ -72,11 +81,19 @@
 
 .search-filter input {
   width: 300px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
 .all-books {
   flex: 1;
   width: 100%;
+}
+
+.all-books h4 {
+  text-align: left;
+  font-weight: bold; /* Add font weight */
 }
 
 .book-details {
@@ -89,6 +106,7 @@ h2 {
   font-size: 20px;
   margin-bottom: 10px;
   margin-right: 10px;
+  font-weight: bold; /* Add font weight */
 }
 
 ul {
@@ -96,14 +114,14 @@ ul {
   padding: 0;
 }
 
-li {
+.book-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 18px;
   padding: 10px;
   margin-bottom: 5px;
-  background-color: #f9f9f9;
+  background-color: white;
   border: 1px solid #eee;
   border-radius: 5px;
   cursor: pointer;
@@ -111,7 +129,8 @@ li {
 }
 
 li:hover {
-  background-color: #79670e;
+  background-color: #836549;
+  color: white;
 }
 
 .book-details-container {
@@ -123,11 +142,13 @@ li:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 2;
 }
 
 .book-details-container h2 {
   font-size: 30px;
   margin-bottom: 10px;
+  font-weight: bold; /* Add font weight */
 }
 
 .book-details-container p {
@@ -164,16 +185,60 @@ li:hover {
   color: #fff;
 }
 
-.favorite-btn {
-  background-color: #6fae62;
-  color: #fff;
-  width: 90px;
+/* Hover effects */
+.edit-btn:hover {
+  background-color: #056cdb;
+
+}
+.delete-btn:hover {
+  background-color: #eb1127;
 }
 
-/* Hover effects */
-.edit-btn:hover,
-.delete-btn:hover,
-.favorite-btn:hover {
-  opacity: 0.5;
+.book-details-btn {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center align items vertically */
+  margin-top: 20px;
 }
-  
+
+.favorite-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+}
+
+.favorite-btn svg {
+  fill: transparent; /* Set the fill color to transparent */
+  stroke: #000; /* Set the stroke color to black */
+  stroke-width: 2px; /* Set the stroke width */
+  width: 40px;
+  height: 40px;
+  transition: fill 0.3s ease, stroke 0.3s ease; /* Add transition for both fill and stroke */
+}
+
+.favorite-btn.favorited svg {
+  fill: rgb(209, 18, 18); /* Red color for favorited heart icon */
+  stroke: transparent; /* Hide the stroke when favorited */
+}
+
+.favorite-btn:hover svg {
+  fill: rgb(229, 210, 210); /* White color for heart icon on hover */
+  stroke: transparent; /* Hide the stroke on hover */
+}
+
+.check-in-out-btn {
+  background-color: #836549;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.check-in-out-btn:hover {
+  background-color: #3e362e;
+}

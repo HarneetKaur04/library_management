@@ -116,7 +116,7 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const userId = req.params.id;
-    const { username, email } = req.body;
+    const { username, contact_details } = req.body;
 
     // Check if the user exists
     const user = await db.query('SELECT * FROM users WHERE id = $1', [userId]);
@@ -125,7 +125,7 @@ router.put('/:id', async (req, res) => {
     }
 
     // Update the user's information in the database
-    await db.query('UPDATE users SET username = $1, email = $2 WHERE id = $3', [username, email, userId]);
+    await db.query('UPDATE users SET username = $1, contact_details = $3 WHERE id = $4', [username, contact_details, userId]);
 
     res.status(200).json({ message: 'User information updated successfully' });
   } catch (error) {
@@ -152,9 +152,8 @@ router.get('/:userId/favorite-books', async (req, res) => {
 });
 
 //route to add new book as favorite
-router.post('/:userId/favorite-books', async (req, res) => {
-  const { userId } = req.params;
-  const { bookId } = req.body;
+router.post('/:userId/favorite-books/:bookId', async (req, res) => {
+  const { userId, bookId } = req.params;
 
   try {
     // Insert the book into the user's favorite_books table

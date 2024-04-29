@@ -34,34 +34,10 @@ function Books() {
 
     // Fetch books data from API
     fetchBooks();
-
-    // Fetch favorite books if user is logged in
-    if (user) {
-      fetchFavoriteBooks();
-    }
   }, []); // Empty dependency array ensures useEffect runs only once on component mount
 
-  const fetchFavoriteBooks = async () => {
-    try {
-      const response = await fetch(`http://localhost:5000/api/users/${user.id}/favorite-books`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      // Update the favorited status of books based on user's favorite list
-      setBooks(prevBooks =>
-        prevBooks.map(book => ({
-          ...book,
-          favorited: data.favoriteBooks.some(favoriteBook => favoriteBook.book_id === book.id)
-        }))
-      );
-    } catch (error) {
-      console.error('Error fetching favorite books:', error);
-    }
-  };
-
-  const handleBookClick = (bookId) => {
-    setSelectedBook(bookId); // Set the selected book id
+  const handleBookClick = (book) => {
+    setSelectedBook(book); // Set the selected book id
     setIsModalOpen(false);
   };
 
@@ -97,43 +73,6 @@ function Books() {
       setSelectedBook(null);
     } catch (error) {
       console.error('Error deleting book:', error);
-    }
-  };
-
-  const handleFavoriteToggle = async (bookId, favorited) => {
-    try {
-      if (favorited) {
-        // If book is already favorited, send a DELETE request to remove it
-        const response = await fetch(`http://localhost:5000/api/users/${user.id}/favorite-books/${bookId}`, {
-          method: 'DELETE'
-        });
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-      } else {
-        // If book is not favorited, send a POST request to add it
-        const response = await fetch(`http://localhost:5000/api/users/${user.id}/favorite-books`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ bookId }),
-        });
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-      }
-      // Update the favorited status locally
-      setBooks(prevBooks =>
-        prevBooks.map(book => {
-          if (book.id === bookId) {
-            return { ...book, favorited: !favorited };
-          }
-          return book;
-        })
-      );
-    } catch (error) {
-      console.error('Error toggling favorite:', error);
     }
   };
 
@@ -187,6 +126,7 @@ function Books() {
   const renderAlphabetButtons = () => {
     return (
       <div className="title-alphabets">
+        <button onClick={() => filterBooksByAlphabet(null)}>All</button> {/* Button to clear alphabet filter */}
         {[...Array(26)].map((_, index) => (
           <button key={index} onClick={() => filterBooksByAlphabet(String.fromCharCode(65 + index))}>
             {String.fromCharCode(65 + index)}
@@ -280,27 +220,26 @@ function Books() {
         <div className="all-books">
           <h2>List of books</h2>
           <ul>
-            {filteredBooks.map(book => (
-              <li key={book.id} onClick={() => handleBookClick(book.id)}>
-                {book.title}
-                {/* used stopPropagation as edit button was calling both handleEditBook and handleBookClick leading to modal not opening */}
-                {user ? (
-                  <>
-                    <button className="edit-btn" onClick={(e) => { e.stopPropagation(); handleEditBook(book.id); }}>Edit</button>
-                    <button className="delete-btn" onClick={() => handleDeleteBook(book.id)}>Delete</button>
-                  </>
-                ) : null}
-                {user && !isAdmin && (
-                  <button className="favorite-btn" onClick={(e) => { e.stopPropagation(); handleFavoriteToggle(book.id, book.favorited); }}>
-                    {book.favorited ? 'Unfavorite' : 'Favorite'}
-                  </button>
-                )}
-              </li>
-            ))}
+            {filteredBooks.length > 0 ? (
+              filteredBooks.map(book => (
+                <li className="book-list" key={book.id} onClick={() => handleBookClick(book)}>
+                  {book.title}
+                  {/* used stopPropagation as edit button was calling both handleEditBook and handleBookClick leading to modal not opening */}
+                  {user && isAdmin? (
+                    <>
+                      <button className="edit-btn" onClick={(e) => { e.stopPropagation(); handleEditBook(book.id); }}>Edit</button>
+                      <button className="delete-btn" onClick={() => handleDeleteBook(book.id)}>Delete</button>
+                    </>
+                  ) : null}
+                </li>
+              ))
+            ) : (
+              <h4>No book available as per your search criteria.</h4>
+            )}
           </ul>
         </div>
         <div className="book-details">
-          {selectedBook && !isModalOpen && <BookDetails bookId={selectedBook}/>} {/* Render BookDetails if a book is selected */}
+          {selectedBook && !isModalOpen && <BookDetails book={selectedBook}/>} {/* Render BookDetails if a book is selected */}
         </div>
       </div>
       {isModalOpen && editBookInfo && (

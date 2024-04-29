@@ -45,7 +45,7 @@ const Register = () => {
       <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
       <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <input type="contact" placeholder="Contact" value={contact} onChange={(e) => setContact(e.target.value)} />
+      <input type="contact" placeholder="Phone No." value={contact} onChange={(e) => setContact(e.target.value)} />
       <button onClick={handleRegister}>Register</button>
       {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message if it exists */}
     </div>

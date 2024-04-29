@@ -1,9 +1,11 @@
 <p align="center">LIBRARY MANAGEMENT SYSTEM<p/>
 <div align="center">
-
+  <a href="/assets/library_management_system_preview.mp4">
+    <img src="/assets/library_management_system_preview.mp4" alt="LMS" width="500" height="300">
+  </a>
 </div>
 <br/>
-Demo Video Link: <a href="">Live Demo Recording</a>
+Full Demo Video Link: <a href="/client/public/assets/library_management_system.mp4">Live Webpage Recording</a>
 
 Test admin you should use: admin@test.com  password: password
 <br/>
@@ -13,7 +15,7 @@ Test user you can use: homer@simpson.com  password: homer
 ## Contents
 - [Overview](#overview)
 - [Installation and Set Up](#installation-and-set-up)
-- [Dependencies] (#dependencies)
+- [Dependencies](#dependencies)
 - [Database Set Up](#database-set-up)
 - [Routes](#routes)
 - [Tests](#tests)
@@ -57,27 +59,28 @@ Search functionalities include keyword search, locating books by title using alp
 - Go to the cliente folder (`cd .. and cd client`) and run the command `npm install`
 - Run frontend with `npm start`
 
-### To run test, use cmd: `npx jest`
+### To run test, use cmd:
+- `npx jest`
 
 ## Dependencies
 ### Server Dependencies:
-bcrypt: Used for hashing passwords securely for login/register and authentication purpose, ensuring sensitive user data remains protected.
-cors: Middleware for enabling Cross-Origin Resource Sharing (CORS) in Express.js.
-dotenv: Used for loading environment variables from a .env file into process.env, facilitating configuration management and enhancing security by keeping sensitive data out of version control.
-express: Web framework for Node.js used for building APIs and web applications.
-pg: PostgreSQL client for Node.js, utilized for interacting with the PostgreSQL database, enabling data storage and retrieval.
-pg-promise: Promise-based PostgreSQL client for Node.js, offering an alternative to the callback-based approach for interacting with PostgreSQL, enhancing code readability and maintainability.
+- bcrypt: Used for hashing passwords securely for login/register and authentication purpose, ensuring sensitive user data remains protected.
+- cors: Middleware for enabling Cross-Origin Resource Sharing (CORS) in Express.js.
+- dotenv: Used for loading environment variables from a .env file into process.env, facilitating configuration management and enhancing security by keeping sensitive data out of version control.
+- express: Web framework for Node.js used for building APIs and web applications.
+- pg: PostgreSQL client for Node.js, utilized for interacting with the PostgreSQL database, enabling data storage and retrieval.
+- pg-promise: Promise-based PostgreSQL client for Node.js, offering an alternative to the callback-based approach for interacting with PostgreSQL, enhancing code readability and maintainability.
 ### Client Dependencies:
-chart.js: JavaScript library for creating charts and graphs used in Admin Dashboard.
-react-chartjs-2: React wrapper for Chart.js, allowing easy integration of charts into the application.
-react-dom: Used for rendering React components into the DOM.
-react-router-dom: Library for declaratively routing in React applications, enabling navigation between different views/components based on URL changes, enhancing user experience and application organization.
-react-scripts: Scripts and configuration used by Create React App for building and running React applications.
-@babel/preset-env: Babel preset for compiling JavaScript down to a version of JavaScript that can be executed by the majority of browsers. It was necessary for running JSX.
-@babel/preset-react: Babel preset for compiling JSX and React into JavaScript, necessary for transforming JSX syntax into JavaScript code that browsers can understand. It was necessary for running JSX.
-@testing-library/jest-dom: Jest DOM testing utility library for matching and querying DOM elements during tests.
-babel-jest: Jest transformer for JavaScript code, used for transforming JavaScript code using Babel during testing.
-jest: Testing framework for JavaScript code, used for writing and running tests.
+- chart.js: JavaScript library for creating charts and graphs used in Admin Dashboard.
+- react-chartjs-2: React wrapper for Chart.js, allowing easy integration of charts into the application.
+- react-dom: Used for rendering React components into the DOM.
+- react-router-dom: Library for declaratively routing in React applications, enabling navigation between different views/components based on URL changes, enhancing user experience and application organization.
+- react-scripts: Scripts and configuration used by Create React App for building and running React applications.
+- @babel/preset-env: Babel preset for compiling JavaScript down to a version of JavaScript that can be executed by the majority of browsers. It was necessary for running JSX.
+- @babel/preset-react: Babel preset for compiling JSX and React into JavaScript, necessary for transforming JSX syntax into JavaScript code that browsers can understand. It was necessary for running JSX.
+- @testing-library/jest-dom: Jest DOM testing utility library for matching and querying DOM elements during tests.
+- babel-jest: Jest transformer for JavaScript code, used for transforming JavaScript code using Babel during testing.
+- jest: Testing framework for JavaScript code, used for writing and running tests.
 
 ## Database Set Up
 ### Tables:

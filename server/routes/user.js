@@ -125,7 +125,7 @@ router.put('/:id', async (req, res) => {
     }
 
     // Update the user's information in the database
-    await db.query('UPDATE users SET username = $1, contact_details = $3 WHERE id = $4', [username, contact_details, userId]);
+    await db.query('UPDATE users SET username = $1, contact_details = $2 WHERE id = $3', [username, contact_details, userId]);
 
     res.status(200).json({ message: 'User information updated successfully' });
   } catch (error) {

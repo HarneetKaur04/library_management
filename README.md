@@ -1,6 +1,6 @@
 <p align="center">LIBRARY MANAGEMENT SYSTEM<p/>
 <p align="center">
-  <img src="/client/public/assets/library_management_system_preview.gif" alt="Library Management System">
+  <img src="/client/public/assets/lms_preview.gif" alt="Library Management System">
 </p>
 <br/>
 Full Demo Video Link: <a href="/client/public/assets/library_management_system.mp4">Live Webpage Recording</a>

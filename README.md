@@ -32,8 +32,8 @@ The Library Management System is a web application designed to facilitate the ma
 #### CRUD Operation for Books:
 - Admin can perform CRUD operations on books: adding, viewing, updating, and deleting books. Users can view/add/favorite/unfavorite a book.
 #### Book Management:
-- The system allows for the acquisition, cataloging and organization of books within the library.
-- Each book entry includes details such as title, author, ISBN, publication date, and genre.
+- The system allows for the acquisition, cataloging and organization of books within the library. User can reserve a book when its currently checked out by someone as well as acquire when available.
+- Each book entry includes details such as title, author, ISBN, publication date, and genre. Can be sorted by albhabetically by title, author name, year. Can also filter by author name, genre.
 #### Circulation Management:
 - Automated processes handle book check-in and reservation to streamline circulation activities for overdue return books and assigning to reserved user.
 - Users as well as Admin can check-in books, check-out books and place reservations for books that are currently unavailable (i.e. checked out by some user)

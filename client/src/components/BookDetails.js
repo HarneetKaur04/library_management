@@ -62,6 +62,7 @@ function BookDetails({ book }) {
       <p><strong>Author:</strong> {book.author}</p>
       <p><strong>ISBN:</strong> {book.isbn}</p>
       <p><strong>Genre:</strong> {book.genre}</p>
+      <p><strong>Year Published:</strong> {book.publication_date}</p>
       <div className='book-details-btn'>
         {!isAdmin && (
           <button className={`favorite-btn ${favorited ? 'favorited' : ''}`} onClick={(e) => { e.stopPropagation(); handleFavoriteToggle(); }}>

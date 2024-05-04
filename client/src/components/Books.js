@@ -17,6 +17,7 @@ function Books() {
   const [selectedAuthor, setSelectedAuthor] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
   const [editBookInfo, setEditBookInfo] = useState(null); // State to store book info for editing
+  const [selectedSorting, setSelectedSorting] = useState('title'); // State to store selected sorting option
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -75,6 +76,29 @@ function Books() {
       console.error('Error deleting book:', error);
     }
   };
+
+  const sortingOptions = {
+    title: { label: 'Title A-Z', compare: (a, b) => a.title.localeCompare(b.title) },
+    author: { label: 'Author A-Z', compare: (a, b) => a.author.localeCompare(b.author) },
+    year: { label: 'Book Year', compare: (a, b) => {
+      const yearA = new Date(a.publication_date).getFullYear();
+      const yearB = new Date(b.publication_date).getFullYear();
+      return yearA - yearB;
+    }}  
+  };
+
+  const handleSortingChange = (event) => {
+    const sortingOption = event.target.value;
+    setSelectedSorting(sortingOption);
+  };
+
+  const renderSortingOptions = () => (
+    <select value={selectedSorting} onChange={handleSortingChange}>
+      {Object.entries(sortingOptions).map(([key, value]) => (
+        <option key={key} value={key}>{value.label}</option>
+      ))}
+    </select>
+  );
 
   const filterBooksByAlphabet = (alphabet) => {
     setSelectedAlphabet(alphabet === selectedAlphabet ? null : alphabet); // Toggle selection
@@ -180,8 +204,8 @@ function Books() {
     return matchesSearchQuery && matchesAlphabet && matchesGenre && matchesAuthor;
   });
 
-  // Sort filtered books alphabetically by title
-  filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
+  // Sort filtered books based on the selected sorting option
+  filteredBooks.sort(sortingOptions[selectedSorting].compare);
 
   // Close modal function
   const closeModal = () => {
@@ -206,6 +230,10 @@ function Books() {
               <option value="genre">Genre</option>
             </select>
             {renderFilterOptions()}
+          </div>
+          <div className="sorting-section">
+            <h2>Sort by:</h2>
+            {renderSortingOptions()}
           </div>
         </div>
         <div className="search-filter">
